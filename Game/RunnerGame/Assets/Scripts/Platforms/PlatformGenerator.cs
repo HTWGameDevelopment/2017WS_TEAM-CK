@@ -40,7 +40,7 @@ public class PlatformGenerator : MonoBehaviour {
 
 			distanceBetween = Random.Range (distanceBetweenMin, distanceBetweenMax);
 
-			gapChoice = Random.Range (0, 5);
+			gapChoice = Random.Range (0, 6);
 
 			switch((int) lastPlatform.GetComponent<BoxCollider2D>().size.y){
 			case 2:
@@ -61,10 +61,10 @@ public class PlatformGenerator : MonoBehaviour {
 			}
 
 
-			if (gapChoice < 4) {	
+			if (gapChoice < 4) {
 				transform.position = new Vector3 (transform.position.x + platformWidths [platformSelector], transform.position.y, 0); 
 			} else {
-				transform.position = new Vector3 (transform.position.x + platformWidths [platformSelector] + distanceBetween, transform.position.y, 0);
+				transform.position = new Vector3 (transform.position.x + distanceBetween, transform.position.y, 0);
 			}
 
 

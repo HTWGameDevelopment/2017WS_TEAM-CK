@@ -396,9 +396,9 @@ MonoBehaviour:
   thePlatform: {fileID: 1418726669669848, guid: 93e8c2292954a5445a72809851e54396,
     type: 2}
   generationPoint: {fileID: 1115023772}
-  distanceBetween: 3
+  distanceBetween: 2
   distanceBetweenMin: 2
-  distanceBetweenMax: 4
+  distanceBetweenMax: 4.5
   thePlatforms:
   - {fileID: 1418726669669848, guid: 93e8c2292954a5445a72809851e54396, type: 2}
   - {fileID: 1110977241494472, guid: ea5d3aef7740f34469ce8310f254a4b5, type: 2}
@@ -819,8 +819,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 827976770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 569, y: 262.5, z: 0}
-  m_LocalScale: {x: 1.4225, y: 1.4225, z: 1.4225}
+  m_LocalPosition: {x: 574, y: 270.5, z: 0}
+  m_LocalScale: {x: 1.435, y: 1.435, z: 1.435}
   m_Children:
   - {fileID: 2125933876}
   m_Father: {fileID: 0}
@@ -1261,7 +1261,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1442323640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.38, y: -0.03, z: 0}
+  m_LocalPosition: {x: -12.71, y: -2.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 30201046}
@@ -1467,7 +1467,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1977899959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.06, y: -1.2, z: 0.1484375}
+  m_LocalPosition: {x: 1.56, y: -1.2, z: 0.1484375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 905531094}

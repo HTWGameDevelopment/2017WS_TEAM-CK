@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Collider2D myCollider; 
 
+	private bool wantsToJump = false;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +25,12 @@ public class PlayerController : MonoBehaviour {
 		mainCamera = FindObjectOfType<CameraController> ();
 		moveSpeed = mainCamera.cameraSpeed *1.5f ;
 		 
+	}
+
+	void Update () {
+		if (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown (0)) {
+			wantsToJump = true;
+		}
 	}
 	
 	// Update is called once per frame
@@ -51,10 +58,11 @@ public class PlayerController : MonoBehaviour {
 //		}
 //
 
-		if(Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown (0) ){
+		if(wantsToJump){
 			if (grounded) {
 				myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, jumpForce);
 			}
+			wantsToJump = false;
 		}
 	}
 
