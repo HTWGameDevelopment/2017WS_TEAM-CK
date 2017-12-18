@@ -116,7 +116,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.InputController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CollectibleSpawningController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.KIMovementController
-a9ee5827d2bcbac2b29c82dc33192fd6 Assembly-CSharp.dll:.PlayerController
+5dad4dca31e69345f1056809f3cd3245 Assembly-CSharp.dll:.PlayerController
 3296e1ac8e136267e8ac268ff8dd8415 Assembly-CSharp.dll:.ObjectPooler
 117dbe0253557ee3b60e2acfeaa767ed Assembly-CSharp.dll:.PlatformGenerator
 32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
@@ -142,6 +142,7 @@ aefd8515555fdf52e3f9c27e675cfe75 Assembly-CSharp.dll:.PlatformDestroyer
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.BackgroundMapController
+ad4290f4d95517d1d333017542057eca Assembly-CSharp.dll:.HudMapController
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -151,4 +152,3 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SceneController
 2cf5e64f8e4f7bef2b271c214ad0c0db Assembly-CSharp.dll:.CameraController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ShopController
-879549eeb20ce7b53c4bf2c6868f38bc Assembly-CSharp.dll:.HudMapController

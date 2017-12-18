@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 	public bool isAlive;
     public bool gameIsRunning;
 
+    public Animator animator;
 	public LayerMask whatIsGround;
 	public Rigidbody2D myCamera;
 	public CameraController mainCamera; 
@@ -25,8 +26,6 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-	   // GameObject playerScoreObject = GameObject.FindWithTag("HudMapController");
-	   // hudMap = playerScoreObject.GetComponent<HudMapController>();
 		myRigidbody = GetComponent<Rigidbody2D> ();
 		isAlive = true;
 		myCollider = GetComponent<Collider2D> (); 
@@ -54,29 +53,30 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 
 		grounded = Physics2D.IsTouchingLayers (myCollider, whatIsGround);
-
-		//Debug.Log (mainCamera.cameraSpeed);
+        
 		moveSpeed = mainCamera.getCameraSpeed() *1.2f ;
-
-        /**
-		if (isAlive == true && mainCamera.start == true) {
-			highscore.addScore(1);
-            highscore.updateScore();
-        }*/
 
 		if (GameObject.Find("Player").transform.position.y <=-4) {
 			isAlive = false;
 		    mainCamera.end = true;
 		}
 	
+
 	    var x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
 	    this.transform.Translate(x, 0, 0);
         // Vertricale bewegung
         // var z = Input.GetAxis("Vertical") * Time.deltaTime * jumpForce;
         // this.transform.Translate(z,0,0);
 
+	    if (x != 0)
+	    {
+	        animator.SetBool("Walking", true);
+	    }else
+	    {
+	        animator.SetBool("Walking", false);
+        }
 
-        if (wantsToJump){
+	    if (wantsToJump){
 			if (grounded) {
 				myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, jumpForce);
 			}

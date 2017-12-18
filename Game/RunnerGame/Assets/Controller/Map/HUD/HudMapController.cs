@@ -6,64 +6,82 @@ using UnityEngine.UI;
 
 public class HudMapController : MonoBehaviour
 {
-    private HighscoreController playerScore;
-    private int currentScore;
-
+    private HighscoreController playerScores;
     private PlayerController player;
     private CameraController mainCamera;
 
+    private bool tookTime;
 
     public Text scoreText;
+    public Text distanceText;
     public Text timeText;
-    
+
+    private int currentScore;
+    private int currentDistance;
+    private int currentTime;
 
     // Use this for initialization
     void Start()
     {
-        playerScore = FindObjectOfType<HighscoreController>();
-        currentScore = playerScore.getScore();
-
+        playerScores = FindObjectOfType<HighscoreController>();
         player = FindObjectOfType<PlayerController>();
         mainCamera = FindObjectOfType<CameraController>();
-
         InitializeHud();
     }
 
     // Update is called once per frame
-        void Update()
-        {   
+    void Update()
+    {
+        if (player.isAlive == true && mainCamera.start == true)
+        {
+            currentDistance= (int) player.transform.position.x + ((int)mainCamera.transform.position.x - (int) player.transform.position.x);
+            playerScores.setDistance(currentDistance);
         }
+    }
 
     void FixedUpdate()
     {
-        updateScore();
-
         if (player.isAlive == true && mainCamera.start == true)
         {
-            playerScore.addScore(1);
+            playerScores.addScore(1);
+        }
+        if (mainCamera.end == true && tookTime == false)
+        {
+            currentTime = (int)Time.time - currentTime;
+            tookTime = true;
         }
 
-        currentScore = playerScore.getScore();
+        currentScore = playerScores.getScore();
+        currentDistance = playerScores.getDistance();
+
+        updateScore();
+        updateDistance();
+        updateTime();
     }
 
     public void InitializeHud()
     {
         InitializeScore();
-        InitializeHealthBar();
-        InitializeStaminaBar();
+        InitializeDistance();
+        InitializeTimer();
     }
 
     public void InitializeScore()
     {
-        playerScore.setScore(0);
+       playerScores.setScore(0);
     }
 
-    public void InitializeHealthBar()
+    public void InitializeDistance()
     {
+        //Player in dependency of the Camera == 0 every time
+        playerScores.setDistance((int)player.transform.position.x + ((int)mainCamera.transform.position.x - (int)player.transform.position.x));
     }
 
-    public void InitializeStaminaBar()
+
+    public void InitializeTimer()
     {
+        tookTime = false;
+        currentTime = (int)Time.time;
     }
 
     public void updateScore()
@@ -71,6 +89,14 @@ public class HudMapController : MonoBehaviour
         scoreText.text = "Score: " + currentScore.ToString();
     }
 
- 
+    public void updateDistance()
+    {
+        distanceText.text = "Distance: " + currentDistance.ToString();
+    }
+
+    public void updateTime()
+    {
+        timeText.text = "Time alive: " + currentTime.ToString() + " Sec.";
+    }
 }
 

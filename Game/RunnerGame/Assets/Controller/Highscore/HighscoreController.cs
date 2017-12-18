@@ -10,9 +10,11 @@ using UnityEngine.UI;
  */
 public class HighscoreController : MonoBehaviour
 {
+
     private int[] allHighscores;
 
-    private int score = 0;
+    private int score;
+    private int distance;
 
     public void addScore(int newScoreValue)
     {
@@ -28,10 +30,22 @@ public class HighscoreController : MonoBehaviour
     {
         this.score = score;
     }
-    
+
+    public void setDistance(int distance)
+    {
+        this.distance = distance;
+    }
+
+    public int getDistance()
+    {
+       return distance;
+    }
+
 
     public int[] getAllScores()
     {
         return allHighscores;
     }
+
+
 }

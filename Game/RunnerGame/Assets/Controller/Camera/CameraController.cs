@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +12,15 @@ public class CameraController : MonoBehaviour {
 
     public bool start;
     public bool end;
+
 	private Vector3 lastPlayerPosition; 
 	private float distanceToMove;
+
 	public Rigidbody2D myCamera;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
 
 		myCamera = GetComponent<Rigidbody2D> ();
 		start = false;
@@ -24,15 +28,13 @@ public class CameraController : MonoBehaviour {
 	    //lastPlayerPosition = thePlayer.transform.position; 
 
 	}
-	
-	// Update is called once per frame
+    // Update is called once per frame
 	void FixedUpdate () {
 		
-	
 		if (start == true)
 		{
 		    cameraSpeed = 3.5f;
-		}
+        }
 	    if (end == true)
 	    {
 	        cameraSpeed = 0;
@@ -50,6 +52,7 @@ public class CameraController : MonoBehaviour {
     {
         return cameraSpeed;
     }
-    
+
+
 
 }
