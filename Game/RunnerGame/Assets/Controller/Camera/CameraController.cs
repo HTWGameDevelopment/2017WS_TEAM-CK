@@ -7,49 +7,47 @@ using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour {
 
-	public PlayerController thePlayer; 
+	[SerializeField]
     private float cameraSpeed;
-
-    public bool start;
-    public bool end;
-
-	private Vector3 lastPlayerPosition; 
-	private float distanceToMove;
-
+	[SerializeField]
+	private float speedMultiplier;
+	private bool started; 
 	public Rigidbody2D myCamera;
 
 
     // Use this for initialization
     void Start () {
-
 		myCamera = GetComponent<Rigidbody2D> ();
-		start = false;
-	    //thePlayer = FindObjectOfType<PlayerController> ();
-	    //lastPlayerPosition = thePlayer.transform.position; 
-
+		toggleCameraMovement (false);
+		speedMultiplier = 1;
+		started = false;
 	}
+
     // Update is called once per frame
 	void FixedUpdate () {
 		
-		if (start == true)
-		{
-		    cameraSpeed = 3.5f;
-        }
-	    if (end == true)
-	    {
-	        cameraSpeed = 0;
-	    }
-
-	    myCamera.velocity = new Vector2(cameraSpeed, 0);
-
-	    //		distanceToMove = thePlayer.transform.position.x - lastPlayerPosition.x; 
-        //		transform.position = new Vector3 (transform.position.x + distanceToMove, transform.position.y, transform.position.z);
-        //
-        //		lastPlayerPosition = thePlayer.transform.position; 
+		// Move Camera
+		myCamera.velocity = new Vector2 (cameraSpeed, 0);
     }
 
-    public float getCameraSpeed()
-    {
+	void Update() {
+		
+		// start camera movement if player presses any key
+		if (Input.anyKeyDown && !started) {
+			toggleCameraMovement (true);
+			started = true;
+		}
+	}
+
+	void toggleCameraMovement(bool shouldMove) {
+		if (shouldMove) {
+			cameraSpeed = 3.5f * speedMultiplier;
+		} else {
+			cameraSpeed = 0.0f;
+		}
+	}
+
+    public float getSpeed() {
         return cameraSpeed;
     }
 

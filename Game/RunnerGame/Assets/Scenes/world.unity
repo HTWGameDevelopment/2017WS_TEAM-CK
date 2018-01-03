@@ -194,7 +194,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 18213707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 514.5, y: 300.5, z: 0}
+  m_LocalPosition: {x: 531, y: 288.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2125933876}
@@ -258,9 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd57486ffb9861c468cc14ce8228c794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 0}
-  start: 0
-  end: 0
+  cameraSpeed: 0
+  speedMultiplier: 0
   myCamera: {fileID: 30201041}
 --- !u!81 &30201043
 AudioListener:
@@ -1860,8 +1859,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 827976770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 514.5, y: 300.5, z: 0}
-  m_LocalScale: {x: 1.28625, y: 1.28625, z: 1.28625}
+  m_LocalPosition: {x: 531, y: 288.5, z: 0}
+  m_LocalScale: {x: 1.3275, y: 1.3275, z: 1.3275}
   m_Children:
   - {fileID: 1626431097}
   - {fileID: 1485525732}
@@ -2391,7 +2390,6 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
-  myCamera: {fileID: 0}
   mainCamera: {fileID: 0}
 --- !u!50 &1426298512
 Rigidbody2D:
@@ -3605,7 +3603,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2125933875}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 464.5, y: 425.5, z: 0}
+  m_LocalPosition: {x: 481, y: 413.5, z: 0}
   m_LocalScale: {x: 1.173318, y: 1.173318, z: 1.173318}
   m_Children: []
   m_Father: {fileID: 18213711}

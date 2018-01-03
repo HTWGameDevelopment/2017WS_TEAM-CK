@@ -32,28 +32,28 @@ public class HudMapController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.isAlive == true && mainCamera.start == true)
-        {
-            currentDistance= (int) player.transform.position.x + ((int)mainCamera.transform.position.x - (int) player.transform.position.x);
-            playerScores.setDistance(currentDistance);
-        }
+//        if (player.isAlive == true && mainCamera.start == true)
+//        {
+//            currentDistance= (int) player.transform.position.x + ((int)mainCamera.transform.position.x - (int) player.transform.position.x);
+//            playerScores.setDistance(currentDistance);
+//        }
     }
 
     void FixedUpdate()
     {
-        if (player.isAlive == true && mainCamera.start == true)
-        {
-            playerScores.addScore(1);
-        }
-        if (mainCamera.end == true && tookTime == false)
-        {
-            currentTime = (int)Time.time - currentTime;
-            tookTime = true;
-        }
-
-        currentScore = playerScores.getScore();
-        currentDistance = playerScores.getDistance();
-
+//        if (player.isAlive == true && mainCamera.start == true)
+//        {
+//            playerScores.addScore(1);
+//        }
+//        if (mainCamera.end == true && tookTime == false)
+//        {
+//            currentTime = (int)Time.time - currentTime;
+//            tookTime = true;
+//        }
+//
+//        currentScore = playerScores.getScore();
+//        currentDistance = playerScores.getDistance();
+//
         updateScore();
         updateDistance();
         updateTime();

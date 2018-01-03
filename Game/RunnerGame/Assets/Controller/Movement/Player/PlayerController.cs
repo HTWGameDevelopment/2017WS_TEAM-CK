@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -18,7 +17,6 @@ public class PlayerController : MonoBehaviour {
 
     public Animator animator;
 	public LayerMask whatIsGround;
-	public Rigidbody2D myCamera;
 	public CameraController mainCamera; 
 	private Collider2D myCollider; 
 	private bool wantsToJump = false;
@@ -30,10 +28,8 @@ public class PlayerController : MonoBehaviour {
 		isAlive = true;
 		myCollider = GetComponent<Collider2D> (); 
 		mainCamera = FindObjectOfType<CameraController> ();
-		moveSpeed = mainCamera.getCameraSpeed() * 1.5f ;
+		moveSpeed = mainCamera.getSpeed();
 	    jumpForce = 20;
-
-
 	}
 
 	void Update () {
@@ -42,9 +38,9 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		//Code has to be placed here, because if its in FixedUpdate it produces an Bug when selecting a new game and pressing and holding a Key befor
-		if (Input.anyKeyDown) { 
-			mainCamera.start = true;
-		}
+//		if (Input.anyKeyDown) {
+//			mainCamera.start = true;
+//		}
 
 
 	}
@@ -54,13 +50,12 @@ public class PlayerController : MonoBehaviour {
 
 		grounded = Physics2D.IsTouchingLayers (myCollider, whatIsGround);
         
-		moveSpeed = mainCamera.getCameraSpeed() *1.2f ;
+		moveSpeed = mainCamera.getSpeed() *1.2f ;
 
 		if (GameObject.Find("Player").transform.position.y <=-4) {
 			isAlive = false;
-		    mainCamera.end = true;
+//		    mainCamera.end = true;
 		}
-	
 
 	    var x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
 	    this.transform.Translate(x, 0, 0);
@@ -82,5 +77,9 @@ public class PlayerController : MonoBehaviour {
 			}
 			wantsToJump = false;
 		}
+	}
+
+	public float getSpeed() {
+		return moveSpeed;
 	}
 }
