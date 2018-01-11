@@ -194,7 +194,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 18213707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 548, y: 277, z: 0}
+  m_LocalPosition: {x: 562, y: 316.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2125933876}
@@ -261,6 +261,7 @@ MonoBehaviour:
   cameraSpeed: 0
   speedMultiplier: 0
   myCamera: {fileID: 30201041}
+  gameManager: {fileID: 0}
 --- !u!81 &30201043
 AudioListener:
   m_ObjectHideFlags: 0
@@ -424,6 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 102168635}
   - component: {fileID: 102168634}
+  - component: {fileID: 102168636}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -442,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dabd11548cb36403b9c5869854a20b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreController: {fileID: 0}
 --- !u!4 &102168635
 Transform:
   m_ObjectHideFlags: 0
@@ -455,6 +458,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &102168636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 102168633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f890142f2604472b6af17551ab4f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  gameManager: {fileID: 0}
 --- !u!1 &111856703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,7 +1523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 666564151}
   - component: {fileID: 666564152}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: catcher
   m_TagString: Untagged
   m_Icon: {fileID: -3839803715187477772, guid: 0000000000000000d000000000000000, type: 0}
@@ -1899,8 +1915,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 827976770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 548, y: 277, z: 0}
-  m_LocalScale: {x: 1.37, y: 1.37, z: 1.37}
+  m_LocalPosition: {x: 562, y: 316.5, z: 0}
+  m_LocalScale: {x: 1.405, y: 1.405, z: 1.405}
   m_Children:
   - {fileID: 1626431097}
   - {fileID: 1485525732}
@@ -2430,7 +2446,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
-  mainCamera: {fileID: 0}
+  deathZone:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!50 &1426298512
 Rigidbody2D:
   serializedVersion: 4
@@ -3643,7 +3661,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2125933875}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 498, y: 402, z: 0}
+  m_LocalPosition: {x: 512, y: 441.5, z: 0}
   m_LocalScale: {x: 1.173318, y: 1.173318, z: 1.173318}
   m_Children: []
   m_Father: {fileID: 18213711}

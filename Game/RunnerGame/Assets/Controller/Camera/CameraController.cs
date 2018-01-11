@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour {
     private float cameraSpeed;
 	[SerializeField]
 	private float speedMultiplier;
+	private int limit;
 	private bool cameraMoves;
 	public Rigidbody2D myCamera;
 	[SerializeField]
@@ -21,7 +22,8 @@ public class CameraController : MonoBehaviour {
 		gameManager = FindObjectOfType<GameManager> ();
 		myCamera = GetComponent<Rigidbody2D> ();
 		toggleCameraMovement (false);
-		speedMultiplier = 1;
+		speedMultiplier = 1f;
+		limit = 10000; 
 		cameraMoves = false; 
 
 	}
@@ -31,6 +33,7 @@ public class CameraController : MonoBehaviour {
 		
 		// Move Camera
 		moveCamera ();
+		increaseSpeed ();
     }
 
 	void Update() {
@@ -40,13 +43,17 @@ public class CameraController : MonoBehaviour {
 
 	/// <summary>
 	/// Checks the game status and start game. Gamestatus is handled by the GameManager.
+	/// if the player dies, then the camera stops moving.
 	/// </summary>
 	void checkGameStatusAndStartGame(){
-		if (gameManager.getGameStatus () && !cameraMoves) {
+		if (gameManager.getGameStatus () && !cameraMoves && gameManager.getGameStatus ()) {
 			toggleCameraMovement (gameManager.isPlayerAlive());
 			cameraMoves = true; 
-
+			}
+		if(!gameManager.isPlayerAlive ()){
+			toggleCameraMovement (false);
 		}
+
 	}
 
 	/// <summary>
@@ -78,4 +85,16 @@ public class CameraController : MonoBehaviour {
 		myCamera.velocity = new Vector2 (cameraSpeed, 0);
 	}
 
+
+	/// <summary>
+	/// Increases the speed depending on the score.
+	/// </summary>
+	private void increaseSpeed(){
+		if((gameManager.getScore () / limit) > 0){
+			speedMultiplier += 0.2f;
+			cameraSpeed = cameraSpeed * speedMultiplier;
+			limit *= 10;
+			Debug.Log ("Speed increased   " + gameManager.getScore ());
+		}
+	}
 }

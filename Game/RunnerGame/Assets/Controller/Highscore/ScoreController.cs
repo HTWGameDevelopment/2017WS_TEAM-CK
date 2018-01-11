@@ -6,10 +6,12 @@ public class ScoreController : MonoBehaviour {
 
 	[SerializeField]
 	private int score;
+	[SerializeField]
+	private GameManager gameManager;
 
 	// Use this for initialization
 	void Start () {
-		
+		gameManager = FindObjectOfType<GameManager> ();
 	}
 	
 	// Update is called once per frame
@@ -18,7 +20,17 @@ public class ScoreController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		
+		startCalculatingScore ();
+	}
+
+	/// <summary>
+	/// Starts the calculating score. Invoked when the game starts. 
+	/// </summary>
+	private void startCalculatingScore(){
+		if(gameManager.getGameStatus ()){
+			score += 20;
+			//Debug.Log ("Score:  " + score);
+		}
 	}
 
 	public int getScore() {

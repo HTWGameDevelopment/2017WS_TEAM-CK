@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
 	private CameraController cameraController;
 	private PlayerController playerController;
+	[SerializeField]
 	private ScoreController scoreController;
 
 	private bool started; 
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		isGameStarted ();
+		GameStatus ();
 	}
 
 	/// <summary>
@@ -58,9 +59,12 @@ public class GameManager : MonoBehaviour {
 	/// <summary>
 	/// Function that checks, if the player does any input to start the game. 
 	/// </summary>
-	private void isGameStarted(){
+	private void GameStatus(){
 		if (Input.anyKeyDown && !started) {
 			started = true;
+		}
+		if (!isPlayerAlive ()) {
+			started = false;		
 		}
 	}
 
@@ -76,5 +80,15 @@ public class GameManager : MonoBehaviour {
 		return playerController.isPlayerAlive ();
 	}
 
+
+	/// <summary>
+	/// Games the over. When the player dies, his score will be written to his UserAccount.
+	/// All other values like started, alive etc need to be resetted for the next game. 
+	/// OR we reset all values in the start method. Needs to be discussed
+	/// </summary>
+	private void gameOver(){
+		currentUser.setScore (scoreController.getScore ());
+		// Reset now all values for the next start. 
+	}
 
 }
