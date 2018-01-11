@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class User : MonoBehaviour {
+public class User{
 	[SerializeField]
 	private string name;
 	[SerializeField]
