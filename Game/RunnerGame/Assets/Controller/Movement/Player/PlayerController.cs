@@ -17,18 +17,19 @@ public class PlayerController : MonoBehaviour {
 
     public Animator animator;
 	public LayerMask whatIsGround;
-	public CameraController mainCamera; 
 	private Collider2D myCollider; 
 	private bool wantsToJump = false;
+
+	private GameManager gameManager; 
 
 	// Use this for initialization
 	void Start ()
 	{
 		myRigidbody = GetComponent<Rigidbody2D> ();
-		isAlive = true;
+		gameManager = FindObjectOfType<GameManager> ();
 		myCollider = GetComponent<Collider2D> (); 
-		mainCamera = FindObjectOfType<CameraController> ();
-		moveSpeed = mainCamera.getSpeed();
+		isAlive = true;
+		moveSpeed = gameManager.getCameraSpeed();
 	    jumpForce = 20;
 	}
 
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 
 		grounded = Physics2D.IsTouchingLayers (myCollider, whatIsGround);
         
-		moveSpeed = mainCamera.getSpeed() *1.2f ;
+		moveSpeed = gameManager.getCameraSpeed () *1.2f ;
 
 		if (GameObject.Find("Player").transform.position.y <=-4) {
 			isAlive = false;
@@ -81,5 +82,9 @@ public class PlayerController : MonoBehaviour {
 
 	public float getSpeed() {
 		return moveSpeed;
+	}
+
+	public bool isPlayerAlive(){
+		return this.isAlive;
 	}
 }

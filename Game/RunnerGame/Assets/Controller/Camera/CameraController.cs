@@ -11,34 +11,48 @@ public class CameraController : MonoBehaviour {
     private float cameraSpeed;
 	[SerializeField]
 	private float speedMultiplier;
-	private bool started; 
+	private bool cameraMoves;
 	public Rigidbody2D myCamera;
-
+	[SerializeField]
+	private GameManager gameManager;
 
     // Use this for initialization
     void Start () {
+		gameManager = FindObjectOfType<GameManager> ();
 		myCamera = GetComponent<Rigidbody2D> ();
 		toggleCameraMovement (false);
 		speedMultiplier = 1;
-		started = false;
+		cameraMoves = false; 
+
 	}
 
     // Update is called once per frame
 	void FixedUpdate () {
 		
 		// Move Camera
-		myCamera.velocity = new Vector2 (cameraSpeed, 0);
+		moveCamera ();
     }
 
 	void Update() {
-		
-		// start camera movement if player presses any key
-		if (Input.anyKeyDown && !started) {
-			toggleCameraMovement (true);
-			started = true;
+		checkGameStatusAndStartGame ();	
+
+	}
+
+	/// <summary>
+	/// Checks the game status and start game. Gamestatus is handled by the GameManager.
+	/// </summary>
+	void checkGameStatusAndStartGame(){
+		if (gameManager.getGameStatus () && !cameraMoves) {
+			toggleCameraMovement (gameManager.isPlayerAlive());
+			cameraMoves = true; 
+
 		}
 	}
 
+	/// <summary>
+	/// Toggles the camera movement. When the player dies, the Camera will stop. 
+	/// </summary>
+	/// <param name="shouldMove">If set to <c>true</c> should move.</param>
 	void toggleCameraMovement(bool shouldMove) {
 		if (shouldMove) {
 			cameraSpeed = 3.5f * speedMultiplier;
@@ -47,10 +61,21 @@ public class CameraController : MonoBehaviour {
 		}
 	}
 
+
+	/// <summary>
+	/// Gets the speed. The method is called from the GameManager and grants access to the camera Speed.
+	/// </summary>
+	/// <returns>The speed.</returns>
     public float getSpeed() {
         return cameraSpeed;
     }
 
-
+	/// <summary>
+	/// Moves the camera. The actual function that moves the camera.
+	/// Needs access to the RidgedBody of the Camera.
+	/// </summary>
+	private void moveCamera(){
+		myCamera.velocity = new Vector2 (cameraSpeed, 0);
+	}
 
 }
