@@ -1,32 +1,51 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class HighscoreController : MonoBehaviour {
 
-	private int score;
-	private int distance;
+/**
+ * Der HighscoreController is in this context meant to be an DataController for your Highscores
+ */
+public class HighscoreController : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		score = 0;
-		distance = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private int[] allHighscores;
 
-	public void addScore(int value) {
-		score += value;
-	}
+    private int score;
+    private int distance;
 
-	public int getScore() {
-		return score;
-	}
+    public void addScore(int newScoreValue)
+    {
+        score += newScoreValue;
+    }
+    
+    public int getScore()
+    {
+        return score;
+    }
 
-	public int getDistance() {
-		return distance;
-	}
+    public void setScore(int score)
+    {
+        this.score = score;
+    }
+
+    public void setDistance(int distance)
+    {
+        this.distance = distance;
+    }
+
+    public int getDistance()
+    {
+       return distance;
+    }
+
+
+    public int[] getAllScores()
+    {
+        return allHighscores;
+    }
+
+
 }

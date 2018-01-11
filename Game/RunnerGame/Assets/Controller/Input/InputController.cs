@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputController : MonoBehaviour {
 
-	public KeyCode input;
+/**
+ * Generell Input, that we get from the Keyboard
+ */
+public class InputController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,18 +15,6 @@ public class InputController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		getInput ();
-	}
 
-	public void getInput() {
-		if (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown (0)) {
-			input = KeyCode.Space;
-		} else if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.LeftArrow)) {
-			input = KeyCode.A;
-		} else if (Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow)) {
-			input = KeyCode.D;
-		} else {
-			input = KeyCode.None;
-		}
-	}
+    }
 }
