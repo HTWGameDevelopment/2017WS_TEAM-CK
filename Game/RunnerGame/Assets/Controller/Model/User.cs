@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class User : MonoBehaviour {
+public class User {
 	[SerializeField]
 	private string name;
 	[SerializeField]
@@ -17,6 +17,7 @@ public class User : MonoBehaviour {
 		this.setName (name);
 		this.setScore (0);
 	}
+
 	public string getName(){
 		return this.name; 
 	}
