@@ -269,7 +269,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 31741977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 780.28, y: 470.33276, z: 0}
+  m_LocalPosition: {x: 780.28, y: 409.1675, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1669287800}
@@ -853,6 +853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thePlatform: {fileID: 1418726669669848, guid: 93e8c2292954a5445a72809851e54396,
     type: 2}
+  lava: {fileID: 1677915007106102, guid: a7ce30095e5a29f45baf3277d1b71dce, type: 2}
   generationPoint: {fileID: 1115023772}
   distanceBetween: 2
   distanceBetweenMin: 2
@@ -864,6 +865,13 @@ MonoBehaviour:
   - {fileID: 1599927830727182, guid: 3d4758bef89ddf54b9c36b4d22f80afc, type: 2}
   - {fileID: 1487758902761190, guid: 7e068a7aa83edba4f83dedf55d8f28f5, type: 2}
   - {fileID: 1091397822136026, guid: ba0e9f6697cbff4479b00a02cfa4ff0e, type: 2}
+  lavaPlatforms:
+  - {fileID: 1677915007106102, guid: a7ce30095e5a29f45baf3277d1b71dce, type: 2}
+  - {fileID: 1648805703383604, guid: 77635474371f2924f945e200cb672012, type: 2}
+  - {fileID: 1449562132853722, guid: 51d180e4da6e0684fac267423febd9cb, type: 2}
+  - {fileID: 1663978300846890, guid: 34dbd350f8f97c94b95dfdb75088df75, type: 2}
+  - {fileID: 1287277372686694, guid: 2216ec82272d69a4eb3cdb506b986149, type: 2}
+  - {fileID: 1781044261660328, guid: 5620386a4af07ee41988c1a6cd752427, type: 2}
   lastPlatform: {fileID: 1977899959}
 --- !u!4 &628678483
 Transform:
@@ -1815,8 +1823,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1669287796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 825, y: 525, z: 0}
-  m_LocalScale: {x: 0.98214287, y: 0.98214287, z: 0.98214287}
+  m_LocalPosition: {x: 574, y: 319, z: 0}
+  m_LocalScale: {x: 0.68333334, y: 0.68333334, z: 0.68333334}
   m_Children:
   - {fileID: 1871277699}
   - {fileID: 31741978}
@@ -2030,7 +2038,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1871277698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -580.54004, y: 488.61633, z: 0}
+  m_LocalPosition: {x: -580.54004, y: 426.62973, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1669287800}
