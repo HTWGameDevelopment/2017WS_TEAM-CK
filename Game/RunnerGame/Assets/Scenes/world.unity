@@ -1554,6 +1554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0
   jumpForce: 0
+  lifepoints: 0
   grounded: 0
   isAlive: 0
   gameIsRunning: 0
@@ -1564,6 +1565,9 @@ MonoBehaviour:
   deathZone:
     serializedVersion: 2
     m_Bits: 2048
+  lava:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!50 &1426298512
 Rigidbody2D:
   serializedVersion: 4

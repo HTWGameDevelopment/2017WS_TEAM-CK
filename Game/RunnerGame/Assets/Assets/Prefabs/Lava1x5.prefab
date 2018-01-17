@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114328215896573370}
   m_Layer: 12
   m_Name: Lava1x5
-  m_TagString: Untagged
+  m_TagString: lava
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

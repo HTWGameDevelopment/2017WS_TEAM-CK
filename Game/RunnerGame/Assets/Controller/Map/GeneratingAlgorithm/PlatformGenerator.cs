@@ -54,6 +54,11 @@ public class PlatformGenerator : MonoBehaviour {
 		}
 	}
 
+
+	/// <summary>
+	/// Selects the platform which has to be spawned next. 
+	/// depends on the last spwaned platform. prevent spawning obstacles,that can be oversome.
+	/// </summary>
 	private void selectPlatformToSpawn(){
 
 		switch((int) lastPlatform.GetComponent<BoxCollider2D>().size.y){
@@ -76,6 +81,9 @@ public class PlatformGenerator : MonoBehaviour {
 	
 	}
 
+	/// <summary>
+	/// Spawns the lava block.
+	/// </summary>
 	private void spawnLavaBlock(){
 
 		int chooseLavaHeight = Random.Range (0, 2);
@@ -92,6 +100,10 @@ public class PlatformGenerator : MonoBehaviour {
 		lastPlatform = lavaPlatforms [selectLava-1];
 	}
 
+
+	/// <summary>
+	/// Spawns a block after lava.
+	/// </summary>
 	private void spawnBlockAfterLava(){
 
 		int chooseBlockHeight = Random.Range (0, 2);
