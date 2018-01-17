@@ -28,7 +28,7 @@ public class ScoreController : MonoBehaviour {
 	/// </summary>
 	private void startCalculatingScore(){
 		if(gameManager.getGameStatus ()){
-			score += 20;
+			score += 2;
 			//Debug.Log ("Score:  " + score);
 		}
 	}

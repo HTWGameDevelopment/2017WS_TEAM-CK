@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class User{
+public class User {
 	[SerializeField]
 	private string name;
 	[SerializeField]
@@ -17,6 +17,7 @@ public class User{
 		this.setName (name);
 		this.setScore (0);
 	}
+
 	public string getName(){
 		return this.name; 
 	}
