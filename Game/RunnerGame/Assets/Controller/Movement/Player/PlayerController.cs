@@ -61,6 +61,13 @@ public class PlayerController : MonoBehaviour {
 			lifepoints--;
 		}
 	}
+
+	void OnTriggerEnter2D(Collider2D collect){
+		if(collect.gameObject.CompareTag ("collectable")){
+			Destroy (collect.gameObject);
+			gameManager.addPointsFromCollectable (20);
+		}
+	}
 		
 
 	public float getSpeed() {

@@ -19,6 +19,7 @@ public class PlatformGenerator : MonoBehaviour {
 	private int gapChoice; 
 	private int hazardBlockChance; 
 
+
 	public GameObject lastPlatform; 
 	//public ObjectPooler theObjectPool; 
 
@@ -115,5 +116,9 @@ public class PlatformGenerator : MonoBehaviour {
 		transform.position = new Vector3 (transform.position.x + 1, transform.position.y, 0); 
 		Instantiate (thePlatforms[selectPlatform-1], transform.position, transform.rotation);
 		lastPlatform = thePlatforms[selectPlatform-1];
+	}
+
+	public GameObject getLastPlatform(){
+		return lastPlatform; 
 	}
 }

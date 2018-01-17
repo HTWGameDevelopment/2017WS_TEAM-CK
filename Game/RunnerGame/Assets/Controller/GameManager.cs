@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 	private PlayerController playerController;
 	[SerializeField]
 	private ScoreController scoreController;
-
+	private PlatformGenerator platformGenerator;
 	private bool started; 
 
 
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 		cameraController = FindObjectOfType<CameraController> ();
 		playerController = FindObjectOfType<PlayerController> ();
 		scoreController = FindObjectOfType<ScoreController> ();
-
+		platformGenerator = FindObjectOfType<PlatformGenerator> ();
 		started = false; 
 	}
 	
@@ -91,4 +91,12 @@ public class GameManager : MonoBehaviour {
 		// Reset now all values for the next start. 
 	}
 
+
+	public GameObject getLastPlatform(){
+		return platformGenerator.getLastPlatform ();
+	}
+
+	public void addPointsFromCollectable(int points){
+		scoreController.addPointsFromCollectable (points);
+	}
 }
