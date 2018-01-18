@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
 	public float moveSpeed ; 
 	public float jumpForce ; 
+	public int lifepoints; 
 
 	private Rigidbody2D myRigidbody;
     private HudMapController hudMap;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     public Animator animator;
 	public LayerMask whatIsGround;
 	public LayerMask deathZone;
+	public LayerMask lava; 
 	private Collider2D myCollider; 
 	private bool wantsToJump = false;
 
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour {
 		isAlive = true;
 		moveSpeed = gameManager.getCameraSpeed();
 	    jumpForce = 20;
+		lifepoints = 4; 
 	}
 
 	void Update () {
@@ -43,11 +46,22 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		grounded = Physics2D.IsTouchingLayers (myCollider, whatIsGround);
+		checkGrounded ();
 		moveSpeed = gameManager.getCameraSpeed () *1.2f ;
 		movePlayer ();
 
 	}
+
+	/// <summary>
+	/// Raises the collision enter2 d event, when the player collides with a lava block
+	/// </summary>
+	/// <param name="coll">Coll.</param>
+	void OnCollisionEnter2D(Collision2D coll){
+		if (coll.gameObject.tag == "lava") {
+			lifepoints--;
+		}
+	}
+		
 
 	public float getSpeed() {
 		return moveSpeed;
@@ -74,6 +88,9 @@ public class PlayerController : MonoBehaviour {
 		if (Physics2D.IsTouchingLayers (myCollider, deathZone)) {
 			isAlive = false;
 			//Debug.Log ("Player died! You failed!!!");
+		}
+		if (lifepoints <= 0) {
+			isAlive = false;
 		}
 	}
 
@@ -111,6 +128,18 @@ public class PlayerController : MonoBehaviour {
 	private void detectJump(){
 		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) {
 			wantsToJump = true;
+		}
+	}
+		
+	/// <summary>
+	/// Checks if the player is grounded and can jump. 
+	/// On normal ground or lava,the player is allowed to jump. 
+	/// </summary>
+	private void checkGrounded(){
+		if (Physics2D.IsTouchingLayers (myCollider, whatIsGround) || Physics2D.IsTouchingLayers (myCollider, lava)) {
+			grounded = true;
+		} else {
+			grounded = false; 
 		}
 	}
 }

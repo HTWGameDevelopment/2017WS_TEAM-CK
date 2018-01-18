@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour {
 		myCamera = GetComponent<Rigidbody2D> ();
 		toggleCameraMovement (false);
 		speedMultiplier = 1f;
-		limit = 10000; 
+		limit = 2000;
 		cameraMoves = false; 
 
 	}

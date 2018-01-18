@@ -28,23 +28,12 @@ public class ScoreController : MonoBehaviour {
 	/// </summary>
 	private void startCalculatingScore(){
 		if(gameManager.getGameStatus ()){
-			score += 1;
+			score += 2;
 			//Debug.Log ("Score:  " + score);
 		}
 	}
 
-    /// <summary>
-    /// Invoked when the Value of Score need to be called 
-    /// </summary>
 	public int getScore() {
 		return score;
 	}
-
-    /// <summary>
-    /// Invoked when Player gain extra points 
-    /// </summary>
-    public void addScore(int value)
-    {
-        score += value;
-    }
 }
