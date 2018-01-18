@@ -11,9 +11,11 @@ public class CameraController : MonoBehaviour {
     private float cameraSpeed;
 	[SerializeField]
 	private float speedMultiplier;
+
 	private int limit;
 	private bool cameraMoves;
 	public Rigidbody2D myCamera;
+
 	[SerializeField]
 	private GameManager gameManager;
 
@@ -77,11 +79,19 @@ public class CameraController : MonoBehaviour {
         return cameraSpeed;
     }
 
-	/// <summary>
-	/// Moves the camera. The actual function that moves the camera.
-	/// Needs access to the RidgedBody of the Camera.
-	/// </summary>
-	private void moveCamera(){
+    /// <summary>
+    /// Gets the Position in x direction. 
+    /// The method is called from the GameManager and grants access to the camera position.
+    /// </summary>
+    /// <returns>The Position.</returns>
+    public float getPosition(){
+        return myCamera.position.x;
+    }
+    /// <summary>
+    /// Moves the camera. The actual function that moves the camera.
+    /// Needs access to the RidgedBody of the Camera.
+    /// </summary>
+    private void moveCamera(){
 		myCamera.velocity = new Vector2 (cameraSpeed, 0);
 	}
 

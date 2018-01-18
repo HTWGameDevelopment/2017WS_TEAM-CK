@@ -37,10 +37,6 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		detectJump ();
 		checkPlayerIsAlive ();
-		//Code has to be placed here, because if its in FixedUpdate it produces an Bug when selecting a new game and pressing and holding a Key befor
-		//		if (Input.anyKeyDown) {
-		//			mainCamera.start = true;
-		//		}
 
 	}
 	
@@ -56,8 +52,16 @@ public class PlayerController : MonoBehaviour {
 	public float getSpeed() {
 		return moveSpeed;
 	}
+    /// <summary>
+    /// Gets the Position in x direction. 
+    /// The method is called from the GameManager and grants access to the player position.
+    /// </summary>
+    /// <returns>The Position.</returns>
+    public float getPosition(){
+        return myRigidbody.position.x;
+    }
 
-	public bool isPlayerAlive(){
+    public bool isPlayerAlive(){
 		return this.isAlive;
 	}
 

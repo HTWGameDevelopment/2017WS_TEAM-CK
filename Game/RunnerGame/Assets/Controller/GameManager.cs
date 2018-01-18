@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour {
 	private PlayerController playerController;
 	[SerializeField]
 	private ScoreController scoreController;
-
-	private bool started; 
-
-
+    private DistanceController distanceController;
+    private HudMapController hudMapController;
+    private bool started; 
+    
 	private User currentUser = new User("Dummy");
 
 
@@ -20,8 +20,9 @@ public class GameManager : MonoBehaviour {
 		cameraController = FindObjectOfType<CameraController> ();
 		playerController = FindObjectOfType<PlayerController> ();
 		scoreController = FindObjectOfType<ScoreController> ();
+	    distanceController = FindObjectOfType<DistanceController>();
 
-		started = false; 
+        started = false; 
 	}
 	
 	// Update is called once per frame
@@ -46,11 +47,29 @@ public class GameManager : MonoBehaviour {
 		return playerController.getSpeed ();
 	}
 
-	/// <summary>
-	/// Gets the score. Method for other scripts to accedd the current Score.
-	/// </summary>
-	/// <returns>The score.</returns>
-	public int getScore() {
+    /// <summary>
+    /// Gets the player speed. Method for other scritps to access the Speed. 
+    /// </summary>
+    /// <returns>The player speed.</returns>
+    public float getCameraPosition()
+    {
+        return cameraController.getPosition();
+    }
+
+    /// <summary>
+    /// Gets the player speed. Method for other scritps to access the Speed. 
+    /// </summary>
+    /// <returns>The player speed.</returns>
+    public float getPlayerPosition()
+    {
+        return playerController.getPosition();
+    }
+
+    /// <summary>
+    /// Gets the score. Method for other scripts to access the current Score.
+    /// </summary>
+    /// <returns>The score.</returns>
+    public int getScore() {
 		return scoreController.getScore ();
 	}
 
@@ -64,7 +83,7 @@ public class GameManager : MonoBehaviour {
 			started = true;
 		}
 		if (!isPlayerAlive ()) {
-			started = false;		
+			started = false;
 		}
 	}
 
