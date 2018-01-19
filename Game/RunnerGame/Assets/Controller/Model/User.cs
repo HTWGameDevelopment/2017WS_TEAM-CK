@@ -7,6 +7,8 @@ public class User {
 	private string name;
 	[SerializeField]
 	private int score;
+	[SerializeField]
+	private float distance;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +28,11 @@ public class User {
 		return this.score;
 	}
 
+	public float getDistance(){
+		return this.distance; 
+	}
+
+
 	public void setName(string name){
 		this.name = name;
 	}
@@ -33,4 +40,10 @@ public class User {
 	public void setScore(int score){
 		this.score = score;
 	}
+
+
+	public void setDistance(float distance){
+		this.distance = distance;
+	}
+
 }

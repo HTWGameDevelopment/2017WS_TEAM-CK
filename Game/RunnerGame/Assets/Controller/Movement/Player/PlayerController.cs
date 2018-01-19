@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 	public int lifepoints; 
 
 	private Rigidbody2D myRigidbody;
-    private HudMapController hudMap;
+    private TextController hudMap;
 
 
 	public bool grounded;

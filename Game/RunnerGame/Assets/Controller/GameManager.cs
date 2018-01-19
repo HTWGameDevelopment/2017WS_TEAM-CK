@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour {
 	private PlayerController playerController;
 	[SerializeField]
 	private ScoreController scoreController;
-    private DistanceController distanceController;
-    private HudMapController hudMapController;
+	[SerializeField]
+	private DistanceController distanceController;
+	[SerializeField]
+    private TextController textController;
     private bool started; 
     
 	private User currentUser = new User("Dummy");
@@ -47,23 +49,42 @@ public class GameManager : MonoBehaviour {
 		return playerController.getSpeed ();
 	}
 
-    /// <summary>
-    /// Gets the player speed. Method for other scritps to access the Speed. 
+	/// <summary>
+	/// Gets the cameras position. Method for other scritps to access the position of the camera. 
     /// </summary>
-    /// <returns>The player speed.</returns>
+    /// <returns>The camera position in x.</returns>
     public float getCameraPosition()
     {
         return cameraController.getPosition();
     }
 
     /// <summary>
-    /// Gets the player speed. Method for other scritps to access the Speed. 
+    /// Gets the players position. Method for other scritps to access the position of the player. 
     /// </summary>
-    /// <returns>The player speed.</returns>
+    /// <returns>The player position in x.</returns>
     public float getPlayerPosition()
     {
         return playerController.getPosition();
     }
+
+	/// <summary>
+	/// Gets the players distance he walked so far. Method for other scritps to access the walked distance of the player. 
+	/// </summary>
+	/// <returns>The player distance.</returns>
+	public float getDistance()
+	{
+		return distanceController.getDistance();
+	}
+
+	/// <summary>
+	/// Gets the players played Time. Method for other scritps to access the played time of the player. 
+	/// </summary>
+	/// <returns>The played time.</returns>
+	public float getTime()
+	{
+		//TODO: RETURN THE PLAYED TIME
+		return 0;
+	}
 
     /// <summary>
     /// Gets the score. Method for other scripts to access the current Score.
