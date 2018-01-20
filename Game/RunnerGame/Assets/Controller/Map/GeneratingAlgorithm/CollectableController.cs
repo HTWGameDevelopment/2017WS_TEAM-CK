@@ -25,7 +25,7 @@ public class CollectableController : MonoBehaviour {
 		
 
 	private GameObject chooseRandomCollectable(){
-		int select = Random.Range (0, 2);
+		int select = Random.Range (0, 3);
 		return collectables[select]; 
 	}
 

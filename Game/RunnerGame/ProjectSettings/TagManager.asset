@@ -6,6 +6,7 @@ TagManager:
   tags:
   - lava
   - collectable
+  - cookie
   layers:
   - Default
   - TransparentFX

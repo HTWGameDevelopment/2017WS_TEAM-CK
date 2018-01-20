@@ -67,6 +67,10 @@ public class PlayerController : MonoBehaviour {
 			Destroy (collect.gameObject);
 			gameManager.addPointsFromCollectable (20);
 		}
+		if (collect.gameObject.CompareTag ("cookie")) {
+			increaseHealth ();
+			Destroy (collect.gameObject);
+		}
 	}
 		
 
@@ -139,6 +143,12 @@ public class PlayerController : MonoBehaviour {
 			grounded = true;
 		} else {
 			grounded = false; 
+		}
+	}
+
+	private void increaseHealth(){
+		if(lifepoints < 4){
+			lifepoints++;
 		}
 	}
 }

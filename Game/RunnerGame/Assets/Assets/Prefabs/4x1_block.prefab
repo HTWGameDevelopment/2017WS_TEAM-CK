@@ -201,6 +201,7 @@ MonoBehaviour:
   collectables:
   - {fileID: 1067675173944660, guid: cfc462ec1edfe2a459c033b2705df0b1, type: 2}
   - {fileID: 1568842940960866, guid: f42839e0ca1cc7e499ca3e00917a13da, type: 2}
+  - {fileID: 1390272604188826, guid: 05081f16a14fb4a4fa9a1c70d6e7a393, type: 2}
   platform: {fileID: 0}
 --- !u!114 &114953662725189206
 MonoBehaviour:
