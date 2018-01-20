@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	public float moveSpeed ; 
-	public float jumpForce ; 
+	public float moveSpeed; 
+	public float jumpForce; 
 	public int lifepoints; 
 
 	private Rigidbody2D myRigidbody;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 		isAlive = true;
 		moveSpeed = gameManager.getCameraSpeed();
 	    jumpForce = 20;
-		lifepoints = 4; 
+		lifepoints = 4;
 	}
 
 	void Update () {
@@ -150,5 +150,13 @@ public class PlayerController : MonoBehaviour {
 		if(lifepoints < 4){
 			lifepoints++;
 		}
+	}
+
+	/// <summary>
+	/// Gets the life points.
+	/// </summary>
+	/// <returns>The life points.</returns>
+	public int getLifePoints() {
+		return this.lifepoints;
 	}
 }

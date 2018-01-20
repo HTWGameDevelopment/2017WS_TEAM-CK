@@ -47,6 +47,14 @@ public class GameManager : MonoBehaviour {
 	}
 
 	/// <summary>
+	/// Gets the player life points.
+	/// </summary>
+	/// <returns>The player life points.</returns>
+	public int getPlayerLifePoints() {
+		return playerController.getLifePoints ();
+	}
+
+	/// <summary>
 	/// Gets the score. Method for other scripts to accedd the current Score.
 	/// </summary>
 	/// <returns>The score.</returns>
