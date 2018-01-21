@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour {
 	public int lifepoints; 
 
 	private Rigidbody2D myRigidbody;
-    private HudMapController hudMap;
 
 
 	public bool grounded;
@@ -65,7 +64,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collect){
 		if(collect.gameObject.CompareTag ("collectable")){
 			Destroy (collect.gameObject);
-			gameManager.addPointsFromCollectable (20);
+			gameManager.addPointsFromCollectable (100);
 		}
 		if (collect.gameObject.CompareTag ("cookie")) {
 			increaseHealth ();
