@@ -34,7 +34,7 @@ public class PlatformGenerator : MonoBehaviour {
 
 		if (transform.position.x < generationPoint.position.x) {
 
-			distanceBetween = Random.Range (distanceBetweenMin, distanceBetweenMax);
+			distanceBetween = (int) Random.Range (distanceBetweenMin, distanceBetweenMax);
 			gapChoice = Random.Range (0, 6);
 			selectPlatformToSpawn ();
 			hazardBlockChance = Random.Range (0,11);

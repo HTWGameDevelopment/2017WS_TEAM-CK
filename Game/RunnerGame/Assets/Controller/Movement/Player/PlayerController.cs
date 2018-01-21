@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 
 		checkGrounded ();
-		moveSpeed = gameManager.getCameraSpeed () *1.4f ;
+		moveSpeed = gameManager.getCameraSpeed () *1.2f ;
 		movePlayer ();
 
 	}
