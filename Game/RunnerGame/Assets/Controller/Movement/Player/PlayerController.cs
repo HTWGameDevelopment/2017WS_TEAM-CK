@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour {
 	/// </summary>
 	private void checkPlayerIsAlive(){
 		if (Physics2D.IsTouchingLayers (myCollider, deathZone)) {
+			lifepoints = 0;
 			isAlive = false;
 			//Debug.Log ("Player died! You failed!!!");
 		}
