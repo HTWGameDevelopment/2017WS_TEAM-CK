@@ -31,7 +31,6 @@ public class PlatformGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		if (transform.position.x < generationPoint.position.x) {
 
 			distanceBetween = (int) Random.Range (distanceBetweenMin, distanceBetweenMax);
