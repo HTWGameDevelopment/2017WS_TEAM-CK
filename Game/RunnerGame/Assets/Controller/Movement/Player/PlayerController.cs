@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
 	/// </summary>
 	/// <param name="coll">Coll.</param>
 	void OnCollisionEnter2D(Collision2D coll){
-		if (coll.gameObject.tag == "lava") {
+		if (coll.gameObject.tag == "lava" && lifepoints > 0) {
 			lifepoints--;
 		}
 	}
