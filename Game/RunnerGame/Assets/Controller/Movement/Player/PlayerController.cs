@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 		isAlive = true;
 		moveSpeed = gameManager.getCameraSpeed();
 	    jumpForce = 20;
-		lifepoints = 4;
+		lifepoints = 5;
 	}
 
 	void Update () {
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 
 		checkGrounded ();
-		moveSpeed = gameManager.getCameraSpeed () *1.2f ;
+		moveSpeed = gameManager.getCameraSpeed () * 1.2f ;
 		movePlayer ();
 
 	}
