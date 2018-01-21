@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask whatIsGround;
 	public LayerMask deathZone;
 	public LayerMask lava; 
-	private Collider2D myCollider; 
+	private Collider2D myCollider;
 	private bool wantsToJump = false;
 
 	private GameManager gameManager; 
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		myRigidbody = GetComponent<Rigidbody2D> ();
 		gameManager = FindObjectOfType<GameManager> ();
-		myCollider = GetComponent<Collider2D> (); 
+		myCollider = GetComponent<CapsuleCollider2D> (); 
 		isAlive = true;
 		moveSpeed = gameManager.getCameraSpeed();
 	    jumpForce = 20;
