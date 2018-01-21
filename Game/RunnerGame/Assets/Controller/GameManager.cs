@@ -99,4 +99,5 @@ public class GameManager : MonoBehaviour {
 	public void addPointsFromCollectable(int points){
 		scoreController.addPointsFromCollectable (points);
 	}
+		
 }
