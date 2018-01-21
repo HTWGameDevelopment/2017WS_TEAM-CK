@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void increaseHealth(){
-		if(lifepoints < 4){
+		if(lifepoints < 5){
 			lifepoints++;
 		}
 	}
