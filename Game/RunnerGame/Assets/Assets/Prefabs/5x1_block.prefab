@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 4317980257155456}
   - component: {fileID: 61540733019298448}
   - component: {fileID: 114510010714424794}
+  - component: {fileID: 114336763235692254}
   m_Layer: 10
   m_Name: 5x1_block
   m_TagString: Untagged
@@ -216,6 +217,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 5}
   m_EdgeRadius: 0
+--- !u!114 &114336763235692254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1487758902761190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a0aec9287b7a244ac7ef40502a15d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectables:
+  - {fileID: 1067675173944660, guid: cfc462ec1edfe2a459c033b2705df0b1, type: 2}
+  - {fileID: 1568842940960866, guid: f42839e0ca1cc7e499ca3e00917a13da, type: 2}
+  - {fileID: 1390272604188826, guid: 05081f16a14fb4a4fa9a1c70d6e7a393, type: 2}
+  platform: {fileID: 0}
 --- !u!114 &114510010714424794
 MonoBehaviour:
   m_ObjectHideFlags: 1

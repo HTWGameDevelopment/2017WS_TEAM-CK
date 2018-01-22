@@ -33,6 +33,11 @@ public class ScoreController : MonoBehaviour {
 		}
 	}
 
+	public void addPointsFromCollectable(int points){
+		score += points;
+		Debug.Log ("100 points from collectable");
+	}
+
 	public int getScore() {
 		return score;
 	}

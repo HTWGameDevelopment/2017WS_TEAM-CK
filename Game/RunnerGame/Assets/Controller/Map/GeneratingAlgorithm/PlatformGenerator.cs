@@ -19,6 +19,7 @@ public class PlatformGenerator : MonoBehaviour {
 	private int gapChoice; 
 	private int hazardBlockChance; 
 
+
 	public GameObject lastPlatform; 
 	//public ObjectPooler theObjectPool; 
 
@@ -30,10 +31,9 @@ public class PlatformGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		if (transform.position.x < generationPoint.position.x) {
 
-			distanceBetween = Random.Range (distanceBetweenMin, distanceBetweenMax);
+			distanceBetween = (int) Random.Range (distanceBetweenMin, distanceBetweenMax);
 			gapChoice = Random.Range (0, 6);
 			selectPlatformToSpawn ();
 			hazardBlockChance = Random.Range (0,11);
@@ -92,8 +92,8 @@ public class PlatformGenerator : MonoBehaviour {
 		if(chooseLavaHeight == 1 && selectLava >= 2){
 			selectLava--;	 
 		}
-		int t = Random.Range (1, 4);
-		for (; t < 4; t++) {
+		int t = Random.Range (1, 3);
+		for (; t < 3; t++) {
 			transform.position = new Vector3 (transform.position.x + 1, transform.position.y, 0);
 			Instantiate (lavaPlatforms [selectLava - 1], transform.position, transform.rotation);
 		}
@@ -115,5 +115,9 @@ public class PlatformGenerator : MonoBehaviour {
 		transform.position = new Vector3 (transform.position.x + 1, transform.position.y, 0); 
 		Instantiate (thePlatforms[selectPlatform-1], transform.position, transform.rotation);
 		lastPlatform = thePlatforms[selectPlatform-1];
+	}
+
+	public GameObject getLastPlatform(){
+		return lastPlatform; 
 	}
 }

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4981080266750278}
   - component: {fileID: 61176937214467812}
   - component: {fileID: 114615953006962400}
+  - component: {fileID: 114740017663919242}
   m_Layer: 10
   m_Name: 3x1_block
   m_TagString: Untagged
@@ -168,6 +169,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformDestructionPoint: {fileID: 0}
+--- !u!114 &114740017663919242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1334556567165084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a0aec9287b7a244ac7ef40502a15d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectables:
+  - {fileID: 1067675173944660, guid: cfc462ec1edfe2a459c033b2705df0b1, type: 2}
+  - {fileID: 1568842940960866, guid: f42839e0ca1cc7e499ca3e00917a13da, type: 2}
+  - {fileID: 1390272604188826, guid: 05081f16a14fb4a4fa9a1c70d6e7a393, type: 2}
+  platform: {fileID: 0}
 --- !u!212 &212063970857137412
 SpriteRenderer:
   m_ObjectHideFlags: 1

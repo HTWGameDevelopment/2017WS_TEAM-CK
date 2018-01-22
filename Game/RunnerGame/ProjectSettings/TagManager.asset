@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - lava
+  - collectable
+  - cookie
+  - mntVG
   layers:
   - Default
   - TransparentFX
@@ -19,11 +22,11 @@ TagManager:
   - Ground
   - DeathZone
   - Lava
+  - collectable
   - 
-  - 
-  - 
-  - 
-  - 
+  - MountainVG
+  - MountainBG
+  - SnowHill
   - 
   - 
   - 
@@ -41,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: player
+    uniqueID: 3191142877
     locked: 0
