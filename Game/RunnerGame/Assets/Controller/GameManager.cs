@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour {
 	private PlayerController playerController;
 	[SerializeField]
 	private ScoreController scoreController;
+    [SerializeField]
     private DistanceController distanceController;
-    private HudMapController hudMapController;
-    private HazardController hazardController;
+    [SerializeField]
+    private TextController textController;
     private bool started; 
     
 	private User currentUser = new User("Dummy");
@@ -84,6 +85,25 @@ public class GameManager : MonoBehaviour {
     {
         return playerController.getPositionY();
     }
+
+	/// <summary>
+	/// Gets the players distance he walked so far. Method for other scritps to access the walked distance of the player. 
+	/// </summary>
+	/// <returns>The player distance.</returns>
+	public float getDistance()
+	{
+		return distanceController.getDistance();
+	}
+
+	/// <summary>
+	/// Gets the players played Time. Method for other scritps to access the played time of the player. 
+	/// </summary>
+	/// <returns>The played time.</returns>
+	public float getTime()
+	{
+		//TODO: RETURN THE PLAYED TIME
+		return 0;
+	}
 
     /// <summary>
     /// Gets the score. Method for other scripts to access the current Score.
