@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour {
 	/// Detects the jump. When the customer presses SPACE | W | UP_ARROW, the player will jump.
 	/// </summary>
 	private void detectJump(){
-		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) {
+		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) ) {
 			wantsToJump = true;
 		}
 	}
