@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 	private ScoreController scoreController;
     private DistanceController distanceController;
     private HudMapController hudMapController;
+    private HazardController hazardController;
     private bool started; 
     
 	private User currentUser = new User("Dummy");
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour {
 		playerController = FindObjectOfType<PlayerController> ();
 		scoreController = FindObjectOfType<ScoreController> ();
 	    distanceController = FindObjectOfType<DistanceController>();
+	    hazardController = FindObjectOfType<HazardController>();
 
         started = false; 
 	}
@@ -48,21 +50,39 @@ public class GameManager : MonoBehaviour {
 	}
 
     /// <summary>
-    /// Gets the player speed. Method for other scritps to access the Speed. 
+    /// Gets the Camera X position. Method for other scritps to access the X. 
     /// </summary>
-    /// <returns>The player speed.</returns>
-    public float getCameraPosition()
+    /// <returns>The player X.</returns>
+    public float getCameraPositionX()
     {
-        return cameraController.getPosition();
+        return cameraController.getPositionX();
     }
 
     /// <summary>
-    /// Gets the player speed. Method for other scritps to access the Speed. 
+    /// Gets the Camera Y position. Method for other scritps to access the Y. 
     /// </summary>
     /// <returns>The player speed.</returns>
-    public float getPlayerPosition()
+    public float getCameraPositionY()
     {
-        return playerController.getPosition();
+        return cameraController.getPositionY();
+    }
+
+    /// <summary>
+    /// Gets the player X. Method for other scritps to access the X. 
+    /// </summary>
+    /// <returns>The player speed.</returns>
+    public float getPlayerPositionX()
+    {
+        return playerController.getPositionX();
+    }
+
+    /// <summary>
+    /// Gets the player Y. Method for other scritps to access the Y. 
+    /// </summary>
+    /// <returns>The player speed.</returns>
+    public float getPlayerPositionY()
+    {
+        return playerController.getPositionY();
     }
 
     /// <summary>

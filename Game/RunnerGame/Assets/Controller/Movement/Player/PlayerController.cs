@@ -47,17 +47,17 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 
 		checkGrounded ();
-		moveSpeed = gameManager.getCameraSpeed () *1.2f ;
+	    moveSpeed = gameManager.getCameraSpeed () *1.2f ;
 		movePlayer ();
 
 	}
 
 	/// <summary>
-	/// Raises the collision enter2 d event, when the player collides with a lava block
+	/// Raises the collision entered event, when the player collides with a hazard
 	/// </summary>
 	/// <param name="coll">Coll.</param>
 	void OnCollisionEnter2D(Collision2D coll){
-		if (coll.gameObject.tag == "lava") {
+		if (coll.gameObject.tag == "lava" || coll.gameObject.tag == "SnowBall") {
 			lifepoints--;
 		}
 	}
@@ -66,15 +66,25 @@ public class PlayerController : MonoBehaviour {
 	public float getSpeed() {
 		return moveSpeed;
 	}
+
     /// <summary>
     /// Gets the Position in x direction. 
     /// The method is called from the GameManager and grants access to the player position.
     /// </summary>
-    /// <returns>The Position.</returns>
-    public float getPosition(){
+    /// <returns>The Position in X.</returns>
+    public float getPositionX(){
         return myRigidbody.position.x;
     }
 
+    /// <summary>
+    /// Gets the Position in y direction. 
+    /// The method is called from the GameManager and grants access to the player position.
+    /// </summary>
+    /// <returns>The Position in Y.</returns>
+    public float getPositionY()
+    {
+        return myRigidbody.position.y;
+    }
     public bool isPlayerAlive(){
 		return this.isAlive;
 	}

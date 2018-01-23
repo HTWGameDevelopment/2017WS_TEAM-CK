@@ -6,7 +6,8 @@ public class PlatformGenerator : MonoBehaviour {
 
 	public GameObject thePlatform; 
 	public GameObject lava;
-	public Transform generationPoint; 
+	public Transform generationPoint;
+
 	public float distanceBetween;
 	private float platformWidth; 
 	public float distanceBetweenMin; 
@@ -14,10 +15,11 @@ public class PlatformGenerator : MonoBehaviour {
 
 	public GameObject[] thePlatforms; 
 	public GameObject[] lavaPlatforms;
+
 	private int platformSelector; 
 	private float[] platformWidths; 
 	private int gapChoice; 
-	private int hazardBlockChance; 
+	private int hazardBlockChance;
 
 	public GameObject lastPlatform; 
 	//public ObjectPooler theObjectPool; 

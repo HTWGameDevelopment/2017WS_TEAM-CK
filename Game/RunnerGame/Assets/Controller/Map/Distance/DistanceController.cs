@@ -26,8 +26,8 @@ public class DistanceController : MonoBehaviour {
     {
         if (!gameManager.getGameStatus())
         {
-            int currentDistance = (int)gameManager.getPlayerPosition() +
-                                 ((int)gameManager.getCameraPosition() - (int)gameManager.getPlayerPosition());
+            int currentDistance = (int)gameManager.getPlayerPositionX() +
+                                 ((int)gameManager.getCameraPositionX() - (int)gameManager.getPlayerPositionX());
             setDistance(currentDistance);
         }
     }

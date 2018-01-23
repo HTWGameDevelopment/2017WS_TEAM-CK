@@ -47,7 +47,7 @@ public class HudMapController : MonoBehaviour
     /// </summary>
     public void printDistance()
     {
-        distanceText.text = "Distance: " + gameManager.getCameraPosition().ToString();
+        distanceText.text = "Distance: " + gameManager.getCameraPositionX().ToString();
     }
 }
 
