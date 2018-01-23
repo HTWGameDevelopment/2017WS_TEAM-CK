@@ -22,13 +22,16 @@ public class PlayerController : MonoBehaviour {
 	private Collider2D myCollider;
 	private bool wantsToJump = false;
 
-	private GameManager gameManager; 
+	private GameManager gameManager;
+	private InputController inputCtrl;
 
 	// Use this for initialization
 	void Start ()
 	{
-		myRigidbody = GetComponent<Rigidbody2D> ();
 		gameManager = FindObjectOfType<GameManager> ();
+		inputCtrl = FindObjectOfType<InputController> ();
+
+		myRigidbody = GetComponent<Rigidbody2D> ();
 		myCollider = GetComponent<CapsuleCollider2D> (); 
 		isAlive = true;
 		moveSpeed = gameManager.getCameraSpeed();
@@ -37,14 +40,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update () {
-		detectJump ();
 		checkPlayerIsAlive ();
-
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
 		checkGrounded ();
 		moveSpeed = gameManager.getCameraSpeed () * 1.2f ;
 		movePlayer ();
@@ -102,35 +102,20 @@ public class PlayerController : MonoBehaviour {
 	/// Moves the player.
 	/// </summary>
 	private void movePlayer(){
-
-		var x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
+		var x = inputCtrl.detectHorizontalKey() * Time.deltaTime * moveSpeed;
 		this.transform.Translate(x, 0, 0);
-		// Vertricale bewegung
-		// var z = Input.GetAxis("Vertical") * Time.deltaTime * jumpForce;
-		// this.transform.Translate(z,0,0);
 
-		if (x != 0)
-		{
+		if (x != 0) {
 			animator.SetBool("Walking", true);
-		}else
-		{
+		} else {
 			animator.SetBool("Walking", false);
 		}
 
-		if (wantsToJump){
+		if (inputCtrl.jump) {
 			if (grounded) {
 				myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, jumpForce);
 			}
 			wantsToJump = false;
-		}
-	}
-
-	/// <summary>
-	/// Detects the jump. When the customer presses SPACE | W | UP_ARROW, the player will jump.
-	/// </summary>
-	private void detectJump(){
-		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) {
-			wantsToJump = true;
 		}
 	}
 		

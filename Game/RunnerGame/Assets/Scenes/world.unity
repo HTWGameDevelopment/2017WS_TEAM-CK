@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 102168634}
   - component: {fileID: 102168636}
   - component: {fileID: 102168637}
+  - component: {fileID: 102168638}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -514,6 +515,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 198463893}
+--- !u!114 &102168638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 102168633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d6e6c5a1616f547992942d2b0d8889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &142500342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,7 +2034,7 @@ GameObject:
   - component: {fileID: 999604144}
   - component: {fileID: 999604143}
   m_Layer: 5
-  m_Name: MainMenuPanel
+  m_Name: GameOverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
