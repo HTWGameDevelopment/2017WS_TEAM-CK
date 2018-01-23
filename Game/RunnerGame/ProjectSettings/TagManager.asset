@@ -8,6 +8,7 @@ TagManager:
   - collectable
   - cookie
   - mntVG
+  - ice
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - MountainVG
   - MountainBG
   - SnowHill
-  - 
+  - ice
   - 
   - 
   - 

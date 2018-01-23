@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask whatIsGround;
 	public LayerMask deathZone;
 	public LayerMask lava; 
+	public LayerMask ice; 
 	private Collider2D myCollider;
 	private bool wantsToJump = false;
 
@@ -139,7 +140,7 @@ public class PlayerController : MonoBehaviour {
 	/// On normal ground or lava,the player is allowed to jump. 
 	/// </summary>
 	private void checkGrounded(){
-		if (Physics2D.IsTouchingLayers (myCollider, whatIsGround) || Physics2D.IsTouchingLayers (myCollider, lava)) {
+		if (Physics2D.IsTouchingLayers (myCollider, whatIsGround) || Physics2D.IsTouchingLayers (myCollider, lava) || Physics2D.IsTouchingLayers (myCollider, ice)) {
 			grounded = true;
 		} else {
 			grounded = false; 

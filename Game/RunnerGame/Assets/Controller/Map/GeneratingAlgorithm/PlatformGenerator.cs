@@ -14,10 +14,12 @@ public class PlatformGenerator : MonoBehaviour {
 
 	public GameObject[] thePlatforms; 
 	public GameObject[] lavaPlatforms;
+	public GameObject[] icePlatforms;
 	private int platformSelector; 
 	private float[] platformWidths; 
 	private int gapChoice; 
 	private int hazardBlockChance; 
+	private int chooseHazardBlock;
 
 
 	public GameObject lastPlatform; 
@@ -37,6 +39,7 @@ public class PlatformGenerator : MonoBehaviour {
 			gapChoice = Random.Range (0, 6);
 			selectPlatformToSpawn ();
 			hazardBlockChance = Random.Range (0,11);
+			chooseHazardBlock = Random.Range (0,11);
 
 			if (hazardBlockChance <= 7) {
 				if (gapChoice < 4) {
@@ -48,7 +51,11 @@ public class PlatformGenerator : MonoBehaviour {
 				lastPlatform = thePlatforms[platformSelector];
 
 			} else {
-				spawnLavaBlock (); 
+				if (chooseHazardBlock < 4) {
+					spawnLavaBlock (); 
+				} else {
+					spawnIceBlock (); 
+				}
 				spawnBlockAfterLava ();
 			}
 		}
@@ -99,7 +106,7 @@ public class PlatformGenerator : MonoBehaviour {
 		}
 		lastPlatform = lavaPlatforms [selectLava-1];
 	}
-
+		
 
 	/// <summary>
 	/// Spawns a block after lava.
@@ -119,5 +126,20 @@ public class PlatformGenerator : MonoBehaviour {
 
 	public GameObject getLastPlatform(){
 		return lastPlatform; 
+	}
+
+	private void spawnIceBlock(){
+		int chooseIceHeight = Random.Range (0, 2);
+		int selectIce = (int)lastPlatform.GetComponent < BoxCollider2D> ().size.y;
+
+		if(chooseIceHeight == 1 && selectIce >= 2){
+			selectIce--;	 
+		}
+		int t = Random.Range (1, 4);
+		for (; t < 4; t++) {
+			transform.position = new Vector3 (transform.position.x + 1, transform.position.y, 0);
+			Instantiate (icePlatforms [selectIce - 1], transform.position, transform.rotation);
+		}
+		lastPlatform = icePlatforms [selectIce-1];
 	}
 }
