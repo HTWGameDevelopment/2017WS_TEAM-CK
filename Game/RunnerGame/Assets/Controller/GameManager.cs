@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	private PlatformGenerator platformGenerator;
 	private bool started; 
 
+	public Canvas gameOverCanvas;
+
 
 	private User currentUser = new User("Dummy");
 
@@ -21,12 +23,14 @@ public class GameManager : MonoBehaviour {
 		playerController = FindObjectOfType<PlayerController> ();
 		scoreController = FindObjectOfType<ScoreController> ();
 		platformGenerator = FindObjectOfType<PlatformGenerator> ();
+		gameOverCanvas.enabled = false;
 		started = false; 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		GameStatus ();
+		enableGameOverCanvas ();
 	}
 
 	/// <summary>
@@ -106,6 +110,12 @@ public class GameManager : MonoBehaviour {
 
 	public void addPointsFromCollectable(int points){
 		scoreController.addPointsFromCollectable (points);
+	}
+
+	public void enableGameOverCanvas() {
+		if (!isPlayerAlive ()) {
+			gameOverCanvas.enabled = true;
+		}
 	}
 		
 }

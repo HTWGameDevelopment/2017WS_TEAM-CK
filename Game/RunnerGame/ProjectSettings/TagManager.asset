@@ -9,6 +9,7 @@ TagManager:
   - cookie
   - mntVG
   - ice
+  - GameOverCanvas
   layers:
   - Default
   - TransparentFX
