@@ -1209,11 +1209,18 @@ MonoBehaviour:
   - {fileID: 1091397822136026, guid: ba0e9f6697cbff4479b00a02cfa4ff0e, type: 2}
   lavaPlatforms:
   - {fileID: 1677915007106102, guid: a7ce30095e5a29f45baf3277d1b71dce, type: 2}
-  - {fileID: 1648805703383604, guid: 77635474371f2924f945e200cb672012, type: 2}
-  - {fileID: 1449562132853722, guid: 51d180e4da6e0684fac267423febd9cb, type: 2}
-  - {fileID: 1663978300846890, guid: 34dbd350f8f97c94b95dfdb75088df75, type: 2}
-  - {fileID: 1287277372686694, guid: 2216ec82272d69a4eb3cdb506b986149, type: 2}
-  - {fileID: 1781044261660328, guid: 5620386a4af07ee41988c1a6cd752427, type: 2}
+  - {fileID: 1010548346022970, guid: 981ad6318c92a482db14f28ed379bfba, type: 2}
+  - {fileID: 1672398287370246, guid: 51d180e4da6e0684fac267423febd9cb, type: 2}
+  - {fileID: 1925916021673478, guid: 3c873f1ae70f548e59b8c82c46e58c14, type: 2}
+  - {fileID: 1135791679281432, guid: 6f36f42c4253241d884938a66002c398, type: 2}
+  - {fileID: 1871566937075402, guid: 0ca010e69d02b496f919b57e29d8344a, type: 2}
+  icePlatforms:
+  - {fileID: 1356999981242182, guid: 7c4449c005edb4c8a996a09deb810c42, type: 2}
+  - {fileID: 1709854116077266, guid: f2b7c85dba4864d9ea482d093329dee4, type: 2}
+  - {fileID: 1625698308194074, guid: e8b1836735ecd465787748c5faa3108c, type: 2}
+  - {fileID: 1626691122906100, guid: dc78e8f24684a4362af60da2c26c5b92, type: 2}
+  - {fileID: 1127761865454750, guid: 6b5c7f5760cfa41c48ed88a6b19aa864, type: 2}
+  - {fileID: 1766587573356472, guid: b0f172519ac8e4eceaf90811d013b5db, type: 2}
   lastPlatform: {fileID: 267546359}
 --- !u!4 &628678483
 Transform:
@@ -2758,6 +2765,9 @@ MonoBehaviour:
   lava:
     serializedVersion: 2
     m_Bits: 4096
+  ice:
+    serializedVersion: 2
+    m_Bits: 262144
 --- !u!50 &1426298512
 Rigidbody2D:
   serializedVersion: 4
