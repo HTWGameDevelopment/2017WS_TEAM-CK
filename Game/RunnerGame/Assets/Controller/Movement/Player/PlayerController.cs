@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	public float moveSpeed ; 
-	public float jumpForce ; 
+	public float moveSpeed; 
+	public float jumpForce; 
 	public int lifepoints; 
 
 	private Rigidbody2D myRigidbody;
-    private HudMapController hudMap;
 
 
 	public bool grounded;
@@ -20,7 +19,7 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask whatIsGround;
 	public LayerMask deathZone;
 	public LayerMask lava; 
-	private Collider2D myCollider; 
+	private Collider2D myCollider;
 	private bool wantsToJump = false;
 
 	private GameManager gameManager; 
@@ -30,11 +29,11 @@ public class PlayerController : MonoBehaviour {
 	{
 		myRigidbody = GetComponent<Rigidbody2D> ();
 		gameManager = FindObjectOfType<GameManager> ();
-		myCollider = GetComponent<Collider2D> (); 
+		myCollider = GetComponent<CapsuleCollider2D> (); 
 		isAlive = true;
 		moveSpeed = gameManager.getCameraSpeed();
 	    jumpForce = 20;
-		lifepoints = 4; 
+		lifepoints = 5;
 	}
 
 	void Update () {
@@ -47,7 +46,7 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 
 		checkGrounded ();
-		moveSpeed = gameManager.getCameraSpeed () *1.4f ;
+		moveSpeed = gameManager.getCameraSpeed () * 1.2f ;
 		movePlayer ();
 
 	}
@@ -57,7 +56,7 @@ public class PlayerController : MonoBehaviour {
 	/// </summary>
 	/// <param name="coll">Coll.</param>
 	void OnCollisionEnter2D(Collision2D coll){
-		if (coll.gameObject.tag == "lava") {
+		if (coll.gameObject.tag == "lava" && lifepoints > 0) {
 			lifepoints--;
 		}
 	}
@@ -65,7 +64,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collect){
 		if(collect.gameObject.CompareTag ("collectable")){
 			Destroy (collect.gameObject);
-			gameManager.addPointsFromCollectable (20);
+			gameManager.addPointsFromCollectable (100);
 		}
 		if (collect.gameObject.CompareTag ("cookie")) {
 			increaseHealth ();
@@ -89,6 +88,7 @@ public class PlayerController : MonoBehaviour {
 	/// </summary>
 	private void checkPlayerIsAlive(){
 		if (Physics2D.IsTouchingLayers (myCollider, deathZone)) {
+			lifepoints = 0;
 			isAlive = false;
 			//Debug.Log ("Player died! You failed!!!");
 		}
@@ -147,9 +147,16 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void increaseHealth(){
-		if(lifepoints < 4){
+		if(lifepoints < 5){
 			lifepoints++;
 		}
 	}
-		
+
+	/// <summary>
+	/// Gets the life points.
+	/// </summary>
+	/// <returns>The life points.</returns>
+	public int getLifePoints() {
+		return this.lifepoints;
+	}
 }
