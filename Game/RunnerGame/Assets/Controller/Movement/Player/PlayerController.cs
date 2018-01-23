@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	public float moveSpeed ; 
-	public float jumpForce ; 
+	public float moveSpeed; 
+	public float jumpForce; 
 	public int lifepoints; 
 
 	private Rigidbody2D myRigidbody;
@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask whatIsGround;
 	public LayerMask deathZone;
 	public LayerMask lava; 
-	private Collider2D myCollider; 
+	public LayerMask ice; 
+	private Collider2D myCollider;
 	private bool wantsToJump = false;
 
 	private GameManager gameManager; 
@@ -30,11 +31,11 @@ public class PlayerController : MonoBehaviour {
 	{
 		myRigidbody = GetComponent<Rigidbody2D> ();
 		gameManager = FindObjectOfType<GameManager> ();
-		myCollider = GetComponent<Collider2D> (); 
+		myCollider = GetComponent<CapsuleCollider2D> (); 
 		isAlive = true;
 		moveSpeed = gameManager.getCameraSpeed();
 	    jumpForce = 20;
-		lifepoints = 4; 
+		lifepoints = 5;
 	}
 
 	void Update () {
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 
 		checkGrounded ();
-	    moveSpeed = gameManager.getCameraSpeed () *1.2f ;
+		moveSpeed = gameManager.getCameraSpeed () * 1.2f ;
 		movePlayer ();
 
 	}
@@ -57,8 +58,19 @@ public class PlayerController : MonoBehaviour {
 	/// </summary>
 	/// <param name="coll">Coll.</param>
 	void OnCollisionEnter2D(Collision2D coll){
-		if (coll.gameObject.tag == "lava" || coll.gameObject.tag == "SnowBall") {
+		if (livepoints > 0 && (coll.gameObject.tag == "lava" || coll.gameObject.tag == "SnowBall")) {
 			lifepoints--;
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D collect){
+		if(collect.gameObject.CompareTag ("collectable")){
+			Destroy (collect.gameObject);
+			gameManager.addPointsFromCollectable (100);
+		}
+		if (collect.gameObject.CompareTag ("cookie")) {
+			increaseHealth ();
+			Destroy (collect.gameObject);
 		}
 	}
 		
@@ -96,6 +108,7 @@ public class PlayerController : MonoBehaviour {
 	/// </summary>
 	private void checkPlayerIsAlive(){
 		if (Physics2D.IsTouchingLayers (myCollider, deathZone)) {
+			lifepoints = 0;
 			isAlive = false;
 			//Debug.Log ("Player died! You failed!!!");
 		}
@@ -136,7 +149,7 @@ public class PlayerController : MonoBehaviour {
 	/// Detects the jump. When the customer presses SPACE | W | UP_ARROW, the player will jump.
 	/// </summary>
 	private void detectJump(){
-		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) {
+		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) ) {
 			wantsToJump = true;
 		}
 	}
@@ -146,10 +159,24 @@ public class PlayerController : MonoBehaviour {
 	/// On normal ground or lava,the player is allowed to jump. 
 	/// </summary>
 	private void checkGrounded(){
-		if (Physics2D.IsTouchingLayers (myCollider, whatIsGround) || Physics2D.IsTouchingLayers (myCollider, lava)) {
+		if (Physics2D.IsTouchingLayers (myCollider, whatIsGround) || Physics2D.IsTouchingLayers (myCollider, lava) || Physics2D.IsTouchingLayers (myCollider, ice)) {
 			grounded = true;
 		} else {
 			grounded = false; 
 		}
+	}
+
+	private void increaseHealth(){
+		if(lifepoints < 5){
+			lifepoints++;
+		}
+	}
+
+	/// <summary>
+	/// Gets the life points.
+	/// </summary>
+	/// <returns>The life points.</returns>
+	public int getLifePoints() {
+		return this.lifepoints;
 	}
 }

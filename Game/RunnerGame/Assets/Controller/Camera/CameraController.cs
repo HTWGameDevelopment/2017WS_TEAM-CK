@@ -118,4 +118,5 @@ public class CameraController : MonoBehaviour {
 			Debug.Log ("Speed increased   " + gameManager.getScore ());
 		}
 	}
+		
 }

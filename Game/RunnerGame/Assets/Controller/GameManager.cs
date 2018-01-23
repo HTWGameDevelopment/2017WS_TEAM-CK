@@ -12,9 +12,12 @@ public class GameManager : MonoBehaviour {
     private DistanceController distanceController;
     [SerializeField]
     private TextController textController;
-    private bool started; 
-    
-	private User currentUser = new User("Dummy");
+    private bool started;
+  private PlatformGenerator platformGenerator;
+
+    public Canvas gameOverCanvas;
+
+    private User currentUser = new User("Dummy");
 
 
 	// Use this for initialization
@@ -24,13 +27,15 @@ public class GameManager : MonoBehaviour {
 		scoreController = FindObjectOfType<ScoreController> ();
 	    distanceController = FindObjectOfType<DistanceController>();
 	    hazardController = FindObjectOfType<HazardController>();
-
+	    platformGenerator = FindObjectOfType<PlatformGenerator>();
+	    gameOverCanvas.enabled = false;
         started = false; 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		GameStatus ();
+		enableGameOverCanvas ();
 	}
 
 	/// <summary>
@@ -106,6 +111,15 @@ public class GameManager : MonoBehaviour {
 	}
 
     /// <summary>
+    /// Gets the player life points.
+    /// </summary>
+    /// <returns>The player life points.</returns>
+    public int getPlayerLifePoints()
+    {
+        return playerController.getLifePoints();
+    }
+
+    /// <summary>
     /// Gets the score. Method for other scripts to access the current Score.
     /// </summary>
     /// <returns>The score.</returns>
@@ -150,4 +164,19 @@ public class GameManager : MonoBehaviour {
 		// Reset now all values for the next start. 
 	}
 
+
+	public GameObject getLastPlatform(){
+		return platformGenerator.getLastPlatform ();
+	}
+
+	public void addPointsFromCollectable(int points){
+		scoreController.addPointsFromCollectable (points);
+	}
+
+	public void enableGameOverCanvas() {
+		if (!isPlayerAlive ()) {
+			gameOverCanvas.enabled = true;
+		}
+	}
+		
 }
