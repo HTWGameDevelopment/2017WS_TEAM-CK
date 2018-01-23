@@ -8,6 +8,7 @@ TagManager:
   - collectable
   - cookie
   - mntVG
+  - GameOverCanvas
   layers:
   - Default
   - TransparentFX
