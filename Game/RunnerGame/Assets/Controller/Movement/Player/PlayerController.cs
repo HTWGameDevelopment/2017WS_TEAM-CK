@@ -52,15 +52,24 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-	/// <summary>
-	/// Raises the collision enter2 d event, when the player collides with a lava block
-	/// </summary>
-	/// <param name="coll">Coll.</param>
-	void OnCollisionEnter2D(Collision2D coll){
-		if (coll.gameObject.tag == "lava" && lifepoints > 0) {
-			lifepoints--;
-		}
-	}
+    /// <summary>
+    /// Raises the collision enter2 d event, when the player collides with a lava block
+    /// </summary>
+    /// <param name="coll">Coll.</param>
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (lifepoints > 0 && coll.gameObject.tag == "lava")
+        {
+            lifepoints--;
+        }
+        else if (coll.gameObject.tag == "snowball" || coll.gameObject.tag == "snowball")
+        {
+            Destroy(coll.gameObject);
+            lifepoints--;
+        }
+       
+    }
+
 
 	void OnTriggerEnter2D(Collider2D collect){
 		if(collect.gameObject.CompareTag ("collectable")){
@@ -72,9 +81,28 @@ public class PlayerController : MonoBehaviour {
 			Destroy (collect.gameObject);
 		}
 	}
-		
 
-	public float getSpeed() {
+    /// <summary>
+    /// Gets the Position in x direction. 
+    /// The method is called from the GameManager and grants access to the player position.
+    /// </summary>
+    /// <returns>The Position in X.</returns>
+    public float getPositionX()
+    {
+        return myRigidbody.position.x;
+    }
+
+    /// <summary>
+    /// Gets the Position in y direction. 
+    /// The method is called from the GameManager and grants access to the player position.
+    /// </summary>
+    /// <returns>The Position in Y.</returns>
+    public float getPositionY()
+    {
+        return myRigidbody.position.y;
+    }
+
+    public float getSpeed() {
 		return moveSpeed;
 	}
 

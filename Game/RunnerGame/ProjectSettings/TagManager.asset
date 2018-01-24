@@ -10,6 +10,8 @@ TagManager:
   - mntVG
   - ice
   - GameOverCanvas
+  - snowball
+  - fireball
   layers:
   - Default
   - TransparentFX

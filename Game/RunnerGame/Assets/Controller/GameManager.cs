@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]
 	private ScoreController scoreController;
 	private PlatformGenerator platformGenerator;
+	private DistanceController distanceController;
+	private HazardController hazardController;
 	private bool started; 
 
 	public Canvas gameOverCanvas;
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour {
 		playerController = FindObjectOfType<PlayerController> ();
 		scoreController = FindObjectOfType<ScoreController> ();
 		platformGenerator = FindObjectOfType<PlatformGenerator> ();
+	    distanceController = FindObjectOfType<DistanceController>();
+		hazardController = FindObjectOfType<HazardController>();
 		gameOverCanvas.enabled = false;
 		started = false; 
 	}
@@ -49,7 +53,41 @@ public class GameManager : MonoBehaviour {
 	public float getPlayerSpeed() {
 		return playerController.getSpeed ();
 	}
+	/// <summary>
+    /// Gets the Camera X position. Method for other scritps to access the X. 
+    /// </summary>
+    /// <returns>The player X.</returns>
+    public float getCameraPositionX()
+    {
+        return cameraController.getPositionX();
+    }
 
+    /// <summary>
+    /// Gets the Camera Y position. Method for other scritps to access the Y. 
+    /// </summary>
+    /// <returns>The player speed.</returns>
+    public float getCameraPositionY()
+    {
+        return cameraController.getPositionY();
+    }
+
+    /// <summary>
+    /// Gets the player X. Method for other scritps to access the X. 
+    /// </summary>
+    /// <returns>The player speed.</returns>
+    public float getPlayerPositionX()
+    {
+        return playerController.getPositionX();
+    }
+
+    /// <summary>
+    /// Gets the player Y. Method for other scritps to access the Y. 
+    /// </summary>
+    /// <returns>The player speed.</returns>
+    public float getPlayerPositionY()
+    {
+        return playerController.getPositionY();
+}
 	/// <summary>
 	/// Gets the player life points.
 	/// </summary>
