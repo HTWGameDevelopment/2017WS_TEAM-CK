@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour {
         {
             lifepoints--;
         }
-        else if (coll.gameObject.tag == "snowball" || coll.gameObject.tag == "snowball")
+        else if (lifepoints > 0 && coll.gameObject.tag == "snowball")
         {
             Destroy(coll.gameObject);
             lifepoints--;
@@ -141,8 +141,7 @@ public class PlayerController : MonoBehaviour {
 		if (x != 0)
 		{
 			animator.SetBool("Walking", true);
-		}else
-		{
+		} else {
 			animator.SetBool("Walking", false);
 		}
 
