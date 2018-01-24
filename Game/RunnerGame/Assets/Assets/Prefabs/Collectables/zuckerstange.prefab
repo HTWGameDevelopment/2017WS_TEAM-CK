@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4501603205102632}
   - component: {fileID: 212261465568846224}
   - component: {fileID: 61148198799068390}
+  - component: {fileID: 95225288796339902}
+  - component: {fileID: 114249491390735346}
   m_Layer: 13
   m_Name: zuckerstange
   m_TagString: collectable
@@ -66,6 +68,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56569576, y: 0.5436802}
   m_EdgeRadius: 0
+--- !u!95 &95225288796339902
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568842940960866}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5b82e537625afa43a27f76df508bcce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114249491390735346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568842940960866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6da70f98a49f014da59f6d4d7909106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformDestructionPoint: {fileID: 0}
 --- !u!212 &212261465568846224
 SpriteRenderer:
   m_ObjectHideFlags: 1
