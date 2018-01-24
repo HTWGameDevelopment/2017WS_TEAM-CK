@@ -16,6 +16,7 @@ public class InputController : MonoBehaviour {
 		jump = detectJump ();
     }
 
+	#if UNITY_STANDALONE || UNITY_STANDALONE_WIN
 	public float detectHorizontalKey() {
 		float input = Input.GetAxis ("Horizontal");
 		return (input != 0) ? input : 0;
@@ -25,4 +26,12 @@ public class InputController : MonoBehaviour {
 		float input = Input.GetAxis ("Jump");
 		return (input != 0) ? true : false;
 	}
+
+	#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
+	public bool detectJump() {
+		float Input = Input.GetTouch(0).phase == TouchPhase.Began;
+		return (input != 0) ? true : false;
+	}
+
+	#endif
 }
