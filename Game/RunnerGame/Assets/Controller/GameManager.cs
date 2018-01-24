@@ -14,9 +14,19 @@ public class GameManager : MonoBehaviour {
 	private bool started; 
 
 	public Canvas gameOverCanvas;
-
+	public static GameManager instance;
 
 	private User currentUser = new User("Dummy");
+
+
+	void Awake(){
+		if (instance == null) {
+			instance = this; 
+		}else if (instance != this){
+			Destroy (gameObject);
+		}
+
+	}
 
 
 	// Use this for initialization
