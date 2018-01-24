@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour {
         {
             lifepoints--;
         }
-        else if (coll.gameObject.tag == "snowball" || coll.gameObject.tag == "snowball")
+        else if (lifepoints > 0 && coll.gameObject.tag == "snowball")
         {
             Destroy(coll.gameObject);
             lifepoints--;

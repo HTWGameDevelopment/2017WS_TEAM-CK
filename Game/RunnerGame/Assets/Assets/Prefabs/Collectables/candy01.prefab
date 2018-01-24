@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4208743022516412}
   - component: {fileID: 212471215595520702}
   - component: {fileID: 61111860268903920}
+  - component: {fileID: 95990289502343698}
+  - component: {fileID: 114394737596491172}
   m_Layer: 13
   m_Name: candy01
   m_TagString: collectable
@@ -66,6 +68,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4255581, y: 0.55202436}
   m_EdgeRadius: 0
+--- !u!95 &95990289502343698
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1067675173944660}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5b82e537625afa43a27f76df508bcce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114394737596491172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1067675173944660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6da70f98a49f014da59f6d4d7909106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformDestructionPoint: {fileID: 0}
 --- !u!212 &212471215595520702
 SpriteRenderer:
   m_ObjectHideFlags: 1

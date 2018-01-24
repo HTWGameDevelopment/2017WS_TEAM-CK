@@ -7,16 +7,18 @@ public class HazardController : MonoBehaviour
 
     private GameManager gameManager;
     public Transform generationPoint;
-    private float force = 550;
+    private float force = 500;
     public GameObject hazards;
 
     private int spawnChance;
+    private int qualifier;
 
     // Use this for initialization
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         Random.InitState((int)Time.time);
+        qualifier = 0;
     }
 
     // Update is called once per frame
@@ -33,9 +35,13 @@ public class HazardController : MonoBehaviour
     {
         if (transform.position.x < generationPoint.position.x)
         {
-            spawnChance = Random.Range(0, 100);
+            spawnChance = Random.Range(0, 1000);
             //Debug.Log ("SpawnChance:  " + spawnChance);
-            if (spawnChance <= 3)
+            if (gameManager.getScore() % 500 == 0)
+            {
+                qualifier++;
+            }
+            if (spawnChance <= qualifier)
             {
                 transform.position = new Vector2(generationPoint.position.x + 1, generationPoint.position.y);
                 var clone = Instantiate(hazards, transform.position, transform.rotation);
