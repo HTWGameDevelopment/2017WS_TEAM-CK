@@ -50,6 +50,7 @@ public class HazardController : MonoBehaviour
                 clone.GetComponent<Rigidbody2D>().AddForce(gen_to_player.normalized * force);
 
             }
+            Debug.Log ("SpawnChance:  " + spawnChance);
         }
     }
 }
