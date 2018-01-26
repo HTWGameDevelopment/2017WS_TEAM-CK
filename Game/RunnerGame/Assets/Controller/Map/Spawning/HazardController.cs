@@ -11,14 +11,12 @@ public class HazardController : MonoBehaviour
     public GameObject hazards;
 
     private int spawnChance;
-    private int qualifier;
 
     // Use this for initialization
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         Random.InitState((int)Time.time);
-        qualifier = 0;
     }
 
     // Update is called once per frame
