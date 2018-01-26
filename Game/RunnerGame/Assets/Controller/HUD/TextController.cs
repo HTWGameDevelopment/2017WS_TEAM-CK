@@ -9,8 +9,6 @@ public class TextController : MonoBehaviour {
 	private Text scoreText;
 	[SerializeField]
 	private Text distanceText;
-	[SerializeField]
-	private Text timeText;
 
 	private GameManager gameManager;
 
@@ -23,7 +21,6 @@ public class TextController : MonoBehaviour {
 	void Update(){
 		if (!gameManager.getGameStatus ()) {
 			printDistance ();
-			printTime();
 		}
 	}
 
@@ -45,14 +42,6 @@ public class TextController : MonoBehaviour {
 	public void printDistance()
 	{
 		distanceText.text = "Distance: " + gameManager.getDistance().ToString();
-	}
-
-	/// <summary>
-	/// This Method will cast the time from the GameManager Object in an String to be printed on the Screen.
-	/// </summary>
-	public void printTime()
-	{
-		timeText.text = "Time: " + gameManager.getTime().ToString();
 	}
 }
 

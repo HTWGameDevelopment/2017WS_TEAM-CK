@@ -476,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dabd11548cb36403b9c5869854a20b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverCanvas: {fileID: 1320528992}
 --- !u!4 &102168635
 Transform:
   m_ObjectHideFlags: 0
@@ -1230,7 +1231,7 @@ MonoBehaviour:
   - {fileID: 1672398287370246, guid: 51d180e4da6e0684fac267423febd9cb, type: 2}
   - {fileID: 1925916021673478, guid: 3c873f1ae70f548e59b8c82c46e58c14, type: 2}
   - {fileID: 1135791679281432, guid: 6f36f42c4253241d884938a66002c398, type: 2}
-  - {fileID: 1871566937075402, guid: 0ca010e69d02b496f919b57e29d8344a, type: 2}
+  - {fileID: 0}
   icePlatforms:
   - {fileID: 1356999981242182, guid: 7c4449c005edb4c8a996a09deb810c42, type: 2}
   - {fileID: 1709854116077266, guid: f2b7c85dba4864d9ea482d093329dee4, type: 2}
@@ -2918,6 +2919,7 @@ MonoBehaviour:
   moveSpeed: 0
   jumpForce: 0
   lifepoints: 0
+  myRigidbody: {fileID: 0}
   grounded: 0
   isAlive: 0
   gameIsRunning: 0
@@ -3894,10 +3896,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1871277698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abe28f2a914b83944a3858e001d12ce5, type: 3}
+  m_Script: {fileID: 11500000, guid: aaca80879189a42cba0d430bd1b276c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreTextObject: {fileID: 1871277700}
+  scoreText: {fileID: 1871277700}
+  distanceText: {fileID: 1341694025}
 --- !u!1 &1904377375
 GameObject:
   m_ObjectHideFlags: 0
