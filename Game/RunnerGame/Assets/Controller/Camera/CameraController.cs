@@ -60,7 +60,7 @@ public class CameraController : MonoBehaviour {
 	/// Toggles the camera movement. When the player dies, the Camera will stop. 
 	/// </summary>
 	/// <param name="shouldMove">If set to <c>true</c> should move.</param>
-	void toggleCameraMovement(bool shouldMove) {
+	public void toggleCameraMovement(bool shouldMove) {
 		if (shouldMove) {
 			cameraSpeed = 3.5f * speedMultiplier;
 		} else {

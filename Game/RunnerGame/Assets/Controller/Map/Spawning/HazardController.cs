@@ -22,7 +22,10 @@ public class HazardController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnHazard();
+        if (gameManager.isPlayerAlive())
+        {
+            spawnHazard();
+        }
     }
 
 
@@ -48,7 +51,7 @@ public class HazardController : MonoBehaviour
                 clone.GetComponent<Rigidbody2D>().AddForce(gen_to_player.normalized * force);
 
             }
-            Debug.Log ("SpawnChance:  " + spawnChance);
+            //Debug.Log ("SpawnChance:  " + spawnChance);
         }
     }
 }

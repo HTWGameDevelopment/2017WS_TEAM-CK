@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour {
 
 	private CameraController cameraController;
 	private PlayerController playerController;
-	[SerializeField]
 	private ScoreController scoreController;
 	private PlatformGenerator platformGenerator;
 	private DistanceController distanceController;
@@ -114,16 +113,39 @@ public class GameManager : MonoBehaviour {
 		return scoreController.getScore ();
 	}
 
+    /// <summary>
+    /// Gets the score. Method for other scripts to accedd the current Score.
+    /// </summary>
+    /// <returns>The score.</returns>
+    public int getDistance()
+    {
+        return distanceController.getDistance();
+    }
 
+    /// <summary>
+    /// Function that checks, if the player does any input to start the game. 
+    /// </summary>
+    private void GameStatus(){
+		
+        if (Input.GetKeyDown(KeyCode.Escape) && started )
+        {
+            cameraController.toggleCameraMovement(false);
+            gameOverCanvas.enabled = true;
+            started = false;
+        }else if (Input.GetKeyDown(KeyCode.Escape) && !started && isPlayerAlive())
+        {
+             cameraController.toggleCameraMovement(true);
+             gameOverCanvas.enabled = false;
+             started = true;
 
-	/// <summary>
-	/// Function that checks, if the player does any input to start the game. 
-	/// </summary>
-	private void GameStatus(){
-		if (Input.anyKeyDown && !started) {
-			started = true;
-		}
-		if (!isPlayerAlive ()) {
+        }
+
+        if (Input.anyKeyDown && !started && gameOverCanvas.enabled != true)
+        {
+            started = true;
+        }
+
+        if (!isPlayerAlive ()) {
 			started = false;		
 		}
 	}
