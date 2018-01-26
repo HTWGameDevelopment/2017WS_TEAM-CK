@@ -6,18 +6,26 @@ public class GameManager : MonoBehaviour {
 
 	private CameraController cameraController;
 	private PlayerController playerController;
-	[SerializeField]
 	private ScoreController scoreController;
-    [SerializeField]
-    private DistanceController distanceController;
-    [SerializeField]
-    private TextController textController;
-    private bool started;
-  private PlatformGenerator platformGenerator;
+	private PlatformGenerator platformGenerator;
+	private DistanceController distanceController;
+	private HazardController hazardController;
+	private bool started; 
 
-    public Canvas gameOverCanvas;
+	public Canvas gameOverCanvas;
+	public static GameManager instance;
 
-    private User currentUser = new User("Dummy");
+	private User currentUser = new User("Dummy");
+
+
+	void Awake(){
+		if (instance == null) {
+			instance = this; 
+		}else if (instance != this){
+			Destroy (gameObject);
+		}
+
+	}
 
 
 	// Use this for initialization
@@ -25,11 +33,11 @@ public class GameManager : MonoBehaviour {
 		cameraController = FindObjectOfType<CameraController> ();
 		playerController = FindObjectOfType<PlayerController> ();
 		scoreController = FindObjectOfType<ScoreController> ();
+		platformGenerator = FindObjectOfType<PlatformGenerator> ();
 	    distanceController = FindObjectOfType<DistanceController>();
-	    hazardController = FindObjectOfType<HazardController>();
-	    platformGenerator = FindObjectOfType<PlatformGenerator>();
-	    gameOverCanvas.enabled = false;
-        started = false; 
+		hazardController = FindObjectOfType<HazardController>();
+		gameOverCanvas.enabled = false;
+		started = false; 
 	}
 	
 	// Update is called once per frame
@@ -54,8 +62,7 @@ public class GameManager : MonoBehaviour {
 	public float getPlayerSpeed() {
 		return playerController.getSpeed ();
 	}
-
-    /// <summary>
+	/// <summary>
     /// Gets the Camera X position. Method for other scritps to access the X. 
     /// </summary>
     /// <returns>The player X.</returns>
@@ -89,55 +96,57 @@ public class GameManager : MonoBehaviour {
     public float getPlayerPositionY()
     {
         return playerController.getPositionY();
-    }
-
+}
 	/// <summary>
-	/// Gets the players distance he walked so far. Method for other scritps to access the walked distance of the player. 
+	/// Gets the player life points.
 	/// </summary>
-	/// <returns>The player distance.</returns>
-	public float getDistance()
-	{
-		return distanceController.getDistance();
+	/// <returns>The player life points.</returns>
+	public int getPlayerLifePoints() {
+		return playerController.getLifePoints ();
 	}
 
 	/// <summary>
-	/// Gets the players played Time. Method for other scritps to access the played time of the player. 
+	/// Gets the score. Method for other scripts to accedd the current Score.
 	/// </summary>
-	/// <returns>The played time.</returns>
-	public float getTime()
-	{
-		//TODO: RETURN THE PLAYED TIME
-		return 0;
-	}
-
-    /// <summary>
-    /// Gets the player life points.
-    /// </summary>
-    /// <returns>The player life points.</returns>
-    public int getPlayerLifePoints()
-    {
-        return playerController.getLifePoints();
-    }
-
-    /// <summary>
-    /// Gets the score. Method for other scripts to access the current Score.
-    /// </summary>
-    /// <returns>The score.</returns>
-    public int getScore() {
+	/// <returns>The score.</returns>
+	public int getScore() {
 		return scoreController.getScore ();
 	}
 
+    /// <summary>
+    /// Gets the score. Method for other scripts to accedd the current Score.
+    /// </summary>
+    /// <returns>The score.</returns>
+    public int getDistance()
+    {
+        return distanceController.getDistance();
+    }
 
+    /// <summary>
+    /// Function that checks, if the player does any input to start the game. 
+    /// </summary>
+    private void GameStatus(){
+		
+        if (Input.GetKeyDown(KeyCode.Escape) && started )
+        {
+            cameraController.toggleCameraMovement(false);
+            gameOverCanvas.enabled = true;
+            started = false;
+        }else if (Input.GetKeyDown(KeyCode.Escape) && !started && isPlayerAlive())
+        {
+             cameraController.toggleCameraMovement(true);
+             gameOverCanvas.enabled = false;
+             started = true;
 
-	/// <summary>
-	/// Function that checks, if the player does any input to start the game. 
-	/// </summary>
-	private void GameStatus(){
-		if (Input.anyKeyDown && !started) {
-			started = true;
-		}
-		if (!isPlayerAlive ()) {
-			started = false;
+        }
+
+        if (Input.anyKeyDown && !started && gameOverCanvas.enabled != true)
+        {
+            started = true;
+        }
+
+        if (!isPlayerAlive ()) {
+			started = false;		
 		}
 	}
 

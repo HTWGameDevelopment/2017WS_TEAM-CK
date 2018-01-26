@@ -10,6 +10,8 @@ TagManager:
   - mntVG
   - ice
   - GameOverCanvas
+  - snowball
+  - fireball
   layers:
   - Default
   - TransparentFX
@@ -30,7 +32,7 @@ TagManager:
   - MountainBG
   - SnowHill
   - ice
-  - 
+  - hazard
   - 
   - 
   - 

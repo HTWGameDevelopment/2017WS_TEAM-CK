@@ -2,26 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HazardController : MonoBehaviour {
+public class HazardController : MonoBehaviour
+{
 
     private GameManager gameManager;
     public Transform generationPoint;
-    private float force = 550;
+    private int force = 500;
     public GameObject hazards;
 
     private int spawnChance;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         gameManager = FindObjectOfType<GameManager>();
         Random.InitState((int)Time.time);
     }
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	    spawnHazard();
- 	}
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (gameManager.isPlayerAlive())
+        {
+            spawnHazard();
+        }
+    }
 
 
     /// <summary>
@@ -31,9 +36,8 @@ public class HazardController : MonoBehaviour {
     {
         if (transform.position.x < generationPoint.position.x)
         {
-            spawnChance = Random.Range(0, 100);
-            //Debug.Log ("SpawnChance:  " + spawnChance);
-            if (spawnChance <= 3)
+            spawnChance = Random.Range(1, 1000);
+            if (spawnChance <= (gameManager.getScore() / 500))
             {
                 transform.position = new Vector2(generationPoint.position.x + 1, generationPoint.position.y);
                 var clone = Instantiate(hazards, transform.position, transform.rotation);
@@ -47,7 +51,7 @@ public class HazardController : MonoBehaviour {
                 clone.GetComponent<Rigidbody2D>().AddForce(gen_to_player.normalized * force);
 
             }
+            //Debug.Log ("SpawnChance:  " + spawnChance);
         }
     }
 }
-

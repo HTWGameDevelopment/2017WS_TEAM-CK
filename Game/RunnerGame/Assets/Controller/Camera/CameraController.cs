@@ -62,14 +62,32 @@ public class CameraController : MonoBehaviour {
 	/// Toggles the camera movement. When the player dies, the Camera will stop. 
 	/// </summary>
 	/// <param name="shouldMove">If set to <c>true</c> should move.</param>
-	void toggleCameraMovement(bool shouldMove) {
+	public void toggleCameraMovement(bool shouldMove) {
 		if (shouldMove) {
 			cameraSpeed = 3.5f * speedMultiplier;
 		} else {
 			cameraSpeed = 0.0f;
 		}
 	}
+	
+    /// <summary>
+    /// Gets the Position in x direction. 
+    /// The method is called from the GameManager and grants access to the camera position.
+    /// </summary>
+    /// <returns>The Position in X.</returns>
+    public float getPositionX(){
+        return myCamera.position.x;
+    }
 
+    /// <summary>
+    /// Gets the Position in y direction. 
+    /// The method is called from the GameManager and grants access to the camera position.
+    /// </summary>
+    /// <returns>The Position in Y.</returns>
+    public float getPositionY()
+    {
+        return myCamera.position.y;
+}
 
 	/// <summary>
 	/// Gets the speed. The method is called from the GameManager and grants access to the camera Speed.
