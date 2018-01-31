@@ -7,6 +7,7 @@ public class GameOverCanvasController : MonoBehaviour {
 
 	private GameManager gm;
 	public Text scoreText;
+	public Text distanceText;
 
 	// Use this for initialization
 	void Start () {
@@ -16,5 +17,6 @@ public class GameOverCanvasController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		scoreText.text = "You achieved " + gm.getScore() + " points!";
+		distanceText.text = "You travelled " + gm.getDistance () + " m."; 
 	}
 }

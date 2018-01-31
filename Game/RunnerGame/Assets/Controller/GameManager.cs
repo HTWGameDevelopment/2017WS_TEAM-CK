@@ -114,6 +114,9 @@ public class GameManager : MonoBehaviour {
 		return scoreController.getScore ();
 	}
 
+	public int getDistance() {
+		return distanceController.getDistance();
+	}
 
 
 	/// <summary>

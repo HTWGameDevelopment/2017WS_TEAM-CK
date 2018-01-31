@@ -16,7 +16,7 @@ public class HazardController : MonoBehaviour
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        Random.InitState((int)Time.time);
+        //Random.InitState((int)Time.time);
     }
 
     // Update is called once per frame
@@ -34,8 +34,9 @@ public class HazardController : MonoBehaviour
         if (transform.position.x < generationPoint.position.x)
         {
             spawnChance = Random.Range(1, 1000);
-            if (spawnChance <= (gameManager.getScore() / 500))
+            if (spawnChance <= (gameManager.getScore() / 1000))
             {
+				Debug.Log("Spawning Snowball!");
                 transform.position = new Vector2(generationPoint.position.x + 1, generationPoint.position.y);
                 var clone = Instantiate(hazards, transform.position, transform.rotation);
                 clone.AddComponent<Rigidbody2D>();
